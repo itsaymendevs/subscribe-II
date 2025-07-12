@@ -1,0 +1,252 @@
+.receipt--wrapper {
+    background-color: #fff;
+    width: 100%;
+    max-width: 8cm;
+    height: auto;
+    display: inline-flex;
+    padding: 10px 15px;
+    flex-direction: column;
+}
+
+.receipt--wrapper * {
+    color: #111 !important;
+    line-height: initial;
+}
+
+/* hr */
+
+.receipt--hr {
+    width: 100%;
+    border-bottom: 2px dashed #1b1b1b;
+    margin-top: 8px;
+    margin-bottom: 9px;
+}
+
+/* logo */
+
+.receipt--wrapper .logo {
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.receipt--wrapper .logo img {
+    height: 100%;
+    width: 100%;
+    max-width: 110px;
+    height: 45px;
+    object-fit: contain;
+    object-position: center;
+    filter: brightness(0);
+}
+
+/* brand */
+
+.receipt--wrapper .trn {
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+/* brand */
+
+.receipt--wrapper .trn-title {
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+.receipt--wrapper .trn span {
+    font-weight: 600 !important;
+}
+
+.receipt--wrapper .trn i,
+.receipt--wrapper .trn svg {
+    margin: 0px 6px;
+    margin-top: 1px;
+}
+
+/* row */
+
+.receipt--wrapper .receipt--row {
+    margin: 0px;
+}
+
+.receipt--wrapper .receipt--row.for-item {
+    margin-bottom: 6px;
+}
+
+.receipt--wrapper .receipt--row div {
+    padding: 0px;
+}
+
+/* main-title */
+
+.receipt--wrapper .receipt--main-heading {
+    font-size: 21px;
+    font-weight: 800 !important;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+/* location */
+
+.receipt--wrapper .location {
+    display: block;
+    text-align: left;
+}
+
+.receipt--wrapper .location span {
+    font-size: 12px;
+}
+
+.receipt--wrapper .location i,
+.receipt--wrapper .location svg {
+    font-size: 12px;
+    margin: 0px 5px;
+}
+
+/* item */
+
+.receipt--wrapper .item {
+    display: block;
+    text-align: left;
+}
+
+.receipt--wrapper .item.sub {
+    margin-left: 15px;
+    font-size: 11px;
+}
+
+.receipt--wrapper .item span {
+    font-size: 12px;
+}
+
+.receipt--wrapper .item.sub span {
+    font-size: 11px;
+}
+
+.receipt--wrapper .item span.price {
+    font-weight: 600 !important;
+}
+
+.receipt--wrapper .item span.ex:after {
+    content: "—";
+    margin-left: 3px;
+}
+
+.receipt--wrapper .item span.ex:last-of-type:after {
+    content: none;
+}
+
+.receipt--wrapper .receipt--row.for-item .item span {
+    font-size: 11px;
+}
+
+/* quantity */
+
+.receipt--wrapper .quantity {
+    font-weight: 700 !important;
+    font-size: 11px;
+}
+
+/* grams */
+
+.receipt--wrapper .grams {
+    margin-left: 6px;
+    font-weight: 700 !important;
+    font-size: 11px;
+}
+
+.receipt--wrapper .grams:after {
+    content: "G";
+}
+
+.receipt--wrapper .grams:before {
+    content: "x";
+    margin-right: 1px;
+    font-size: 10px;
+}
+
+/* currency */
+
+.receipt--wrapper .with-currency:before {
+    content: "AED";
+    margin-right: 4px;
+}
+
+/* qr */
+
+.receipt--wrapper .receipt--qr svg {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+}
+
+.receipt--wrapper .receipt--qr.sm svg {
+    height: 110px;
+}
+
+.receipt--wrapper .receipt--qr-caption {
+    font-size: 13px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-weight: 600 !important;
+}
+
+/* qr */
+
+.qr-outer--wrapper {
+    background-color: #1b1b1b;
+    width: 7cm;
+    height: 10cm;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    flex-direction: column;
+}
+
+.qr--wrapper {
+    background-color: #1b1b1b;
+    width: 5cm;
+    height: 8cm;
+    display: flex;
+    padding: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr--wrapper .receipt--qr svg {
+    height: 5cm;
+}
+
+.receipt--wrapper .receipt--qr-name {
+    font-size: 13px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-weight: 600 !important;
+}
+
+/* pre-order */
+
+.pre-order--details {
+    background-color: white;
+    max-width: 900px;
+    padding: 30px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 575px) {
+    .pre-order--details {
+        padding: 30px 15px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}

@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Livewire\Forms;
+
+use Livewire\Attributes\Validate;
+use Livewire\Form;
+
+class RoleForm extends Form
+{
+
+    // :: variables
+    #[Validate('required')]
+    public $name, $permissions = [];
+
+
+
+    public $id;
+
+} // end form
