@@ -36,6 +36,8 @@
 
 
 
+        @yield('styles')
+
     </head>
     {{-- endHeader --}}
 

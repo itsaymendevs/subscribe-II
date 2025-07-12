@@ -336,15 +336,14 @@ select:focus {
 
 .btn-double > a:nth-of-type(1) {
     padding: 8px 18px;
-    border-radius: 10px 0px 0px 10px;
-    font-weight: 500;
+    border-radius: 10px 0px 0px 10px !important;
 }
 
 .btn-double > a:nth-of-type(2) {
     padding: 8px 18px;
-    font-weight: 500;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 10px 10px 0px !important;
 }
+
 .btn-double:before {
     font-size: 11px;
     width: 23px;
@@ -384,7 +383,6 @@ select:focus {
     border-radius: 0px;
     border-radius: 0px;
     color: white;
-    min-width: 100px;
     border: 1px solid #343434;
 }
 .nav-pills .nav-link.active,
@@ -508,10 +506,24 @@ select:focus {
     bottom: 60px;
 }
 
+.accordion-box .block .acc-btn.active:before {
+    content: "\F286";
+    font-family: "bootstrap-icons";
+}
+
+.accordion-box .block .acc-btn:before {
+    content: "\F282";
+    font-family: "bootstrap-icons";
+}
+
+.progress-wrap::after {
+    content: "\F286";
+    font-family: "bootstrap-icons";
+}
+
 .label--icon {
     margin-left: 9px;
     color: var(--color-primary);
-    font-size: 17px;
 }
 
 .booking-button.for-cancel {
