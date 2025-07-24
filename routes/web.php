@@ -2,6 +2,7 @@
 
 use App\Livewire\Subscribe\Customization;
 use App\Livewire\Subscribe\Invoice;
+use App\Livewire\Subscribe\Terms;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 
@@ -16,10 +17,6 @@ use Livewire\Livewire;
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 // ** ----------------------------- GENERAL ---------------------------------
-
-
-
-
 
 
 
@@ -84,6 +81,8 @@ if (env('APP_ENV') == 'production') {
 
 
 
+
+
 // 1: customization
 Route::get('/', Customization::class)->name('subscribe.customization');
 Route::get('/customization', Customization::class)->name('subscribe.customization');
@@ -96,9 +95,30 @@ Route::get('/invoice', Invoice::class)->name('subscribe.invoice');
 
 
 
-// 1.5: plans-mirror
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+
+
+
+// 3: terms & conditions
+Route::get('/terms-and-conditions', Terms::class)->name('subscribe.terms');
+
+
+
+
+
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+
+
+
+// :: plans-mirror
 Route::get('/{nameURL}', Customization::class)->name('subscribe.customizationPlan');
 Route::get('/{nameURL}/customization', Customization::class)->name('subscribe.customizationPlan');
+
+
 
 
 

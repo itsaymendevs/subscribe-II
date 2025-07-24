@@ -138,7 +138,7 @@ class Customization extends Component
 
 
         // 1: getPlans - settings
-        $this->planCategories = PlanCategory::all();
+        $this->planCategories = PlanCategory::whereHas('plans')->get();
         $settings = CustomerSubscriptionSetting::first();
 
         $this->plans = Plan::whereHas('ranges')
@@ -165,6 +165,7 @@ class Customization extends Component
 
 
         $this->instance->planId = $this->pickedPlan?->id;
+
 
 
 
@@ -339,6 +340,7 @@ class Customization extends Component
 
 
 
+        $this->recalculate();
 
     } // end function
 
@@ -706,7 +708,6 @@ class Customization extends Component
 
         $this->recalculate();
 
-
     } // end if
 
 
@@ -783,7 +784,7 @@ class Customization extends Component
 
 
 
-    public function checkPromo()
+    public function checkPromo($toRecalculate = true)
     {
 
 
@@ -832,8 +833,11 @@ class Customization extends Component
 
 
         // 1.3: recalculate
-        $this->recalculate();
+        if ($toRecalculate) {
 
+            $this->recalculate();
+
+        } // end if
 
 
 
@@ -898,6 +902,9 @@ class Customization extends Component
 
     public function recalculate()
     {
+
+
+
 
 
 
@@ -974,6 +981,7 @@ class Customization extends Component
 
 
         // 1.2: checkPromo
+        $this->checkPromo(false);
         $this->instance->planPrice -= $this->instance->referralDiscountPrice;
         $this->instance->planPrice -= $this->instance->promoCodeDiscountPrice;
 
@@ -1434,8 +1442,6 @@ class Customization extends Component
 
 
     } // end function
-
-
 
 
 

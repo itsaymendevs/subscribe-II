@@ -2,6 +2,25 @@
 
 
 
+    {{-- head --}}
+    @section('head')
+
+    <title>{{ $pickedPlan?->name }} — Customization</title>
+
+    @endsection
+    {{-- endHead --}}
+
+
+
+
+
+    {{-- ----------------------------------------------------------------- --}}
+    {{-- ----------------------------------------------------------------- --}}
+    {{-- ----------------------------------------------------------------- --}}
+
+
+
+
 
     {{-- colors --}}
     <livewire:subscribe.components.colors key='colors' />
@@ -12,6 +31,11 @@
     {{-- ----------------------------------------------------------------- --}}
     {{-- ----------------------------------------------------------------- --}}
     {{-- ----------------------------------------------------------------- --}}
+
+
+
+
+
 
 
 
@@ -40,9 +64,11 @@
                         @foreach ($planCategories ?? [] as $key => $planCategory)
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link @if ($key == 0) active @endif" id="pills-{{ $key+1 }}-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-{{ $key+1 }}" type="button" role="tab"
-                                aria-controls="pills-{{ $key+1 }}">{{ $planCategory?->name }}</button>
+                            <button style="font-weight: 500"
+                                class="nav-link @if ($pickedPlan?->planCategoryId == $planCategory->id) active @endif"
+                                id="pills-{{ $key+1 }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ $key+1 }}"
+                                type="button" role="tab" aria-controls="pills-{{ $key+1 }}">{{ $planCategory?->name
+                                }}</button>
                         </li>
 
                         @endforeach
@@ -79,8 +105,10 @@
                         @foreach ($planCategories ?? [] as $key => $planCategory)
 
 
-                        <div class="tab-pane fade @if ($key == 0) show active @endif" id="pills-{{ $key+1 }}"
-                            role="tabpanel" aria-labelledby="pills-{{ $key+1 }}-tab" tabindex="0" wire:ignore.self>
+                        <div class="tab-pane fade
+                        @if ($pickedPlan?->planCategoryId == $planCategory->id) show active @endif"
+                            id="pills-{{ $key+1 }}" role="tabpanel" aria-labelledby="pills-{{ $key+1 }}-tab"
+                            tabindex="0" wire:ignore.self>
 
 
 
@@ -200,7 +228,10 @@
 
 
 
-                            {{-- planBundles --}}
+                            {{-- checkPickedPlan --}}
+                            @if ($pickedPlan?->planCategoryId == $planCategory->id)
+
+
                             <div class="team section-padding sm-fix">
 
                                 {{-- title --}}
@@ -334,7 +365,7 @@
                                                         {{-- details --}}
                                                         <div class="title">
                                                             <h4>{{ $planBundle->name }}</h4>
-                                                            <h6>{{ $pickedPlanBundle->remarks ?? null }}</h6>
+                                                            <h6>{{ $planBundle->remarks ?? null }}</h6>
                                                         </div>
                                                     </label>
 
@@ -364,7 +395,7 @@
 
 
                                                     {{-- in-details --}}
-                                                    <div class="item pb-0 mb-2">
+                                                    <div class="item pb-2 mb-2">
 
 
                                                         {{-- loop - types --}}
@@ -393,7 +424,7 @@
 
 
                                                         {{-- buttons --}}
-                                                        <div class="btn-double mt-3 mb-4" data-grouptype="&amp;">
+                                                        <div class="btn-double mt-3 mb-4 d-none" data-grouptype="&amp;">
 
                                                             {{-- confirm --}}
                                                             <a href="#0">Consult</a>
@@ -421,7 +452,8 @@
 
                                                     {{-- price --}}
                                                     <div class="title summary-per-day">
-                                                        <h4>AED {{ $this->instance->totalCheckoutPrice ?? 0 }}
+                                                        <h4>AED {{ number_format($this->instance->totalCheckoutPrice ??
+                                                            0) }}
                                                             <span>/ total price</span>
                                                         </h4>
                                                     </div>
@@ -506,6 +538,20 @@
                                                                                         wire:change='changePlanDays'
                                                                                         id="planDays-{{ $key }}"
                                                                                         value='{{ $planBundleDay->days }}'>
+
+
+
+                                                                                    {{-- discount-icon --}}
+                                                                                    @if ($planBundleDay?->discount ??
+                                                                                    null)
+
+                                                                                    <span>{{ $planBundleDay?->discount
+                                                                                        ?? 0 }}</span>
+
+                                                                                    @endif
+                                                                                    {{-- end if --}}
+
+
 
                                                                                 </label>
 
@@ -747,8 +793,8 @@
                                                     <li class="accordion block
                                                     @if ($instance?->isExistingCustomer) d-none @endif"
                                                         wire:ignore.self>
-                                                        <div class="acc-btn" data-bs-toggle="modal"
-                                                            data-bs-target="#excludes--modal" wire:ignore.self>
+                                                        <div class="acc-btn" wire:ignore.self data-bs-toggle='modal'
+                                                            data-bs-target="#excludes--modal">
                                                             <span class="count">2.</span> Allergens & Dislikes
                                                         </div>
                                                     </li>
@@ -1357,7 +1403,7 @@
 
                                         {{-- bundleDetails --}}
                                         <div class="sidebar-car">
-                                            <div class="item pb-0 mb-2">
+                                            <div class="item pb-2 mb-2">
 
 
                                                 {{-- loop - types --}}
@@ -1383,7 +1429,7 @@
 
 
                                                 {{-- buttons --}}
-                                                <div class="btn-double mb-4 mt-3" data-grouptype="&amp;">
+                                                <div class="btn-double mb-4 mt-3 d-none" data-grouptype="&amp;">
 
                                                     {{-- confirm --}}
                                                     <a href="#0">Consult</a>
@@ -1686,7 +1732,8 @@
 
                                             {{-- price --}}
                                             <div class="title summary-per-day">
-                                                <h4>AED {{ $this->instance->totalCheckoutPrice ?? 0 }} <span>/ total
+                                                <h4>AED {{ number_format($this->instance->totalCheckoutPrice ?? 0) }}
+                                                    <span>/ total
                                                         price</span>
                                                 </h4>
                                             </div>
@@ -1719,7 +1766,7 @@
                                             <input class="form-check-input" type="checkbox" id="accept-terms--checkbox"
                                                 wire:model='instance.acceptTerms' required>
                                             <label class="form-check-label" for="accept-terms--checkbox">
-                                                <a href="javascript:void(0);" target='_blank'>Accept Terms
+                                                <a href="{{ route('subscribe.terms') }}" target='_blank'>Accept Terms
                                                     and Conditions</a>
                                             </label>
                                         </div>
@@ -1749,6 +1796,10 @@
                             {{-- endPlanBundleDetails --}}
 
 
+
+
+                            @endif
+                            {{-- end if - pickedPlan is in Category --}}
 
 
 
@@ -1840,6 +1891,30 @@
 
 
 
+
+
+
+    {{-- select-handle --}}
+    <script>
+        $(".form--regular-select").on("change", function(event) {
+
+
+            // 1.1: getValue - instance
+            selectValue = $(this).select2('val');
+            instance = $(this).attr('data-instance');
+
+            @this.set(instance, selectValue);
+
+        }); //end function
+    </script>
+
+
+
+
+
+
+
+
     {{-- select-handle --}}
     <script>
         $(".level--select").on("change", function(event) {
@@ -1858,7 +1933,7 @@
 
             // 1.2: getID
             selectID = $(this).attr('id');
-            // selectID == 'city--select' ? @this.calculateDeliveryPrice() : null;
+            selectID == 'city--select' ? @this.calculateDeliveryPrice() : null;
 
 
 
@@ -1882,7 +1957,30 @@
             })
 
         });
+
+
+
+         // Datepicker
+         $(document).ready(function() {
+
+                // getStartDate
+             var startDate = @json($instance->startDate);
+
+
+              $(".datepicker").datepicker({
+                orientation: "top",
+                minDate: new Date(startDate)
+            }).on("change", function () {
+                @this.set('instance.startDate', $(this).val());
+                @this.changePlanDays();
+            });
+         })
+
+
+
     </script>
+
+
 
 
 
@@ -1900,8 +1998,14 @@
     {{-- section --}}
     @section('modals')
 
-    <livewire:subscribe.customization.components.customization-excludes key='excludes--modal' />
+
+    {{-- excludes - planDetails --}}
+    <livewire:subscribe.customization.components.customization-excludes key='plan-excludes--modal' />
     <livewire:subscribe.customization.components.customization-plan-details key='plan-details--modal' />
+
+
+
+    {{-- login / logout --}}
     <livewire:subscribe.customization.components.customization-login key='login--modal' />
     <livewire:subscribe.customization.components.customization-logout key='logout--modal' />
 

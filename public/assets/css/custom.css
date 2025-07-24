@@ -27,6 +27,7 @@ p {
     padding: 2px 12px;
     border-radius: 5px;
     margin-bottom: 5px;
+    cursor: pointer;
     font-size: 15px;
     font-weight: 400;
     margin-right: 5px;
@@ -36,7 +37,33 @@ p {
     width: 44px;
     text-align: center;
     padding-left: 0px;
+    position: relative;
     padding-right: 0px;
+    margin-right: 10px;
+}
+
+.selection--label.for-days span {
+    position: absolute;
+    top: -10px;
+    right: -3px;
+    font-size: 9px;
+    background-color: #dc3545d4;
+    line-height: initial;
+    width: 28px;
+    height: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 0px;
+}
+
+.selection--label.for-days span:after {
+    content: "\F4D1";
+    font-family: "bootstrap-icons";
+    font-size: 6px;
+    margin-left: 0px;
 }
 
 .selection--label.for-weekdays {
@@ -206,7 +233,7 @@ select:focus {
 .plans-img {
     width: 390px;
     height: 430px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 @media (max-width: 767px) {
@@ -450,6 +477,16 @@ select:focus {
     font-weight: 500;
 }
 
+.plan-details--subheading {
+    display: inline-block;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid var(--color-primary);
+}
+
 .plan-details--desc {
     color: #bfbfbf;
     font-size: 16px;
@@ -483,9 +520,22 @@ select:focus {
     color: #bfbfbf;
     padding: 4px 12px;
     font-size: 13px;
-    margin-right: 5px;
-    border-radius: 20px;
+    margin-right: 0px;
+    border-radius: 0px;
     line-height: initial;
+    border-right-color: transparent;
+}
+
+.plan-details--tags span:last-of-type {
+    border-right-color: var(--color-primary);
+}
+
+.plan-details--tags.filled span {
+    background-color: var(--color-primary);
+    border-color: #1b1b1b;
+    color: #1b1b1b;
+    margin-top: 10px;
+    font-weight: 500;
 }
 
 @media (max-width: 575px) {
@@ -496,7 +546,7 @@ select:focus {
 
 @media (max-width: 767px) {
     .plan-details--gallery img {
-        height: 200px;
+        height: 240px;
         margin-bottom: 15px;
         margin-right: 0px;
         margin-left: 0px;
@@ -565,4 +615,67 @@ select:focus {
     margin-bottom: 4px;
     line-height: initial;
     width: 100%;
+}
+
+.footer {
+    margin-top: 30px;
+    background-color: #222222;
+}
+
+.footer.with-space {
+    margin-top: 0px;
+    margin-bottom: 48px;
+    background-color: #222222;
+}
+
+.footer .copyright {
+    padding: 15px 0px 18px;
+}
+
+@media (max-width: 767px) {
+    .footer .copyright {
+        padding: 11px 0px 10px;
+    }
+}
+
+.invert {
+    filter: brightness(0) invert(1);
+}
+.copyright p {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: white;
+}
+.powered-by--logo {
+    width: 60px;
+    object-fit: contain;
+    margin-top: -5px;
+    margin-left: 1px;
+    height: 25px;
+}
+
+.mb-term {
+    margin-bottom: 4px;
+}
+
+.term--point {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.term--point:before {
+    content: "\F309";
+    font-family: "bootstrap-icons";
+    color: var(--color-primary);
+    margin-top: 0px;
+    margin-right: 4px;
+}
+
+.terms--wrapper {
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
 }

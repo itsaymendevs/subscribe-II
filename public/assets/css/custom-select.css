@@ -12,6 +12,11 @@
     margin-bottom: 0px;
 }
 
+.select1_inner.multiple .select2 {
+    height: 82px !important;
+    overflow: hidden;
+}
+
 .select2 .selection {
     display: inline-flex;
     height: 100%;

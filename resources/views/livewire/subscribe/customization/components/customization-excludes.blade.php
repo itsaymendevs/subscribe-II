@@ -25,6 +25,8 @@
                                     Allergens<i class='ti ti-info-alt label--icon'></i></label>
 
 
+
+
                                 {{-- innerRow --}}
                                 <div class="row allergen-wrapper" wire:ignore>
 
@@ -32,8 +34,6 @@
                                     {{-- loop - allergies --}}
                                     @foreach ($allergyLists ?? [] as $key =>
                                     $allergyList)
-
-
 
                                     <div class="col-6 col-sm-4 col-md-4 col-lg-3">
                                         <div class="form-check checkbox-wrapper for-allergen">
@@ -48,8 +48,6 @@
 
                                     @endforeach
                                     {{-- end loop - allergies --}}
-
-
 
 
 
@@ -107,9 +105,9 @@
 
 
 
+
                                 </div>
                                 {{-- endInnerRow --}}
-
 
 
                             </div>

@@ -4,11 +4,32 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <title>YumY</title>
+
+
+        @yield('head')
+
 
 
         {{-- favicon --}}
-        <link rel="shortcut icon" href="img/favicon.png" />
+        <link rel="icon" type="image/png" href='{{ url("{$storagePath}profile/{$globalProfile->fourthFavFile}") }}'
+            sizes="96x96" />
+
+        <link rel="icon" type="image/svg+xml"
+            href='{{ url("{$storagePath}profile/{$globalProfile->thirdFavFile}") }}' />
+
+        <link rel="shortcut icon" href='{{ url("{$storagePath}profile/{$globalProfile->favFile}") }}' />
+
+        <link rel="apple-touch-icon" sizes="180x180"
+            href='{{ url("{$storagePath}profile/{$globalProfile->secondFavFile}") }}' />
+
+        <meta name="apple-mobile-web-app-title" content="Meal Plans" />
+
+        <link rel="manifest" href='{{ url("{$storagePath}profile/{$globalProfile->manifestFile}") }}' />
+
+
+
+
+
 
 
 
@@ -126,6 +147,25 @@
 
 
 
+
+        <footer
+            class="footer clearfix @if (Request::is('*/customization', 'customization', '/customization')) with-space @endif">
+            <div class="container">
+                <div class="bottom-footer-text">
+                    <div class="row copyright">
+                        <div class="col-12 text-center">
+                            <p class="mb-0">Powered by
+                                <a href="https://doer.ae" target="_blank"
+                                    style="background-image: none; background: none;">
+                                    <img src="{{ url('assets/img/doer.png') }}" alt="" class='powered-by--logo'>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
         {{-- ----------------------------------------- --}}
         {{-- ----------------------------------------- --}}
         {{-- ----------------------------------------- --}}
@@ -137,18 +177,18 @@
 
 
         {{-- scripts --}}
-        <script src="{{url('assets/js/bootstrap.js')}}" data-navigate-once></script>
+        <script src="{{url('assets/js/bootstrap.js')}}"></script>
         <script src="{{url('assets/js/modernizr.js')}}"></script>
         <script src="{{url('assets/js/images-loaded.js')}}"></script>
-        <script src="{{url('assets/js/jquery-isotope.js')}}" data-navigate-once></script>
-        <script src="{{url('assets/js/popper.js')}}" data-navigate-once></script>
+        <script src="{{url('assets/js/jquery-isotope.js')}}"></script>
+        <script src="{{url('assets/js/popper.js')}}"></script>
         <script src="{{url('assets/js/scrollIt.js')}}"></script>
         <script src="{{url('assets/js/jquery-waypoints.js')}}"></script>
         <script src="{{url('assets/js/owl-carousel.js')}}"></script>
-        <script src="{{url('assets/js/jquery-stellar.js')}}" data-navigate-once></script>
-        <script src="{{url('assets/js/jquery-magnific-popup.js')}}" data-navigate-once></script>
-        <script src="{{url('assets/js/select2.js')}}" data-navigate-once></script>
-        <script src="{{url('assets/js/init-select.js')}}" data-navigate-once></script>
+        <script src="{{url('assets/js/jquery-stellar.js')}}"></script>
+        <script src="{{url('assets/js/jquery-magnific-popup.js')}}"></script>
+        <script src="{{url('assets/js/select2.js')}}"></script>
+        <script src="{{url('assets/js/init-select.js')}}"></script>
         <script src="{{url('assets/js/datepicker.js')}}"></script>
         <script src="{{url('assets/js/youTube-popup.js')}}"></script>
         <script src="{{url('assets/js/custom.js')}}"></script>

@@ -2,6 +2,27 @@
 
 
 
+
+    {{-- head --}}
+    @section('head')
+
+    <title>Invoice</title>
+
+    @endsection
+    {{-- endHead --}}
+
+
+
+
+
+    {{-- ----------------------------------------------------------------- --}}
+    {{-- ----------------------------------------------------------------- --}}
+    {{-- ----------------------------------------------------------------- --}}
+
+
+
+
+
     {{-- colors --}}
     <livewire:subscribe.components.colors key='colors' />
 
@@ -16,9 +37,8 @@
 
 
 
-
     {{-- wrapper --}}
-    <section class="blog2 section-padding">
+    <section class="blog2 section-padding" style="min-height: 91vh">
         <div class="container">
             <div class="row">
 

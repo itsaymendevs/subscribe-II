@@ -13,7 +13,7 @@ class PlanCategory extends Model
     public function plans()
     {
 
-        return $this->hasMany(Plan::class, 'planId');
+        return $this->hasMany(Plan::class, 'planCategoryId');
 
     } // end function
 

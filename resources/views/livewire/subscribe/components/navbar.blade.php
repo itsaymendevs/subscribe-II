@@ -4,8 +4,9 @@
 
         {{-- logo --}}
         <div class="logo-wrapper">
-            <a class="logo" href="{{ route('subscribe.customization') }}">
-                <img src='{{ url("{$storagePath}/profile/{$globalProfile->imageFile}") }}' class="logo-img" alt="" />
+            <a class="logo " href="{{ route('subscribe.customization') }}">
+                <img src='{{ url("{$storagePath}profile/{$globalProfile->imageFile}") }}' class="logo-img invert"
+                    alt="" />
             </a>
         </div>
 
@@ -31,21 +32,19 @@
 
                 {{-- 1: home --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#0" role="button" data-bs-toggle="dropdown"
-                        data-bs-auto-close="outside" aria-expanded="false">Home</a>
+                    <a class="nav-link  dropdown-toggle" href="{{ $globalProfile?->websiteURL }}">Home</a>
                 </li>
 
 
                 {{-- 2: plans --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#0" role="button" data-bs-toggle="dropdown"
-                        data-bs-auto-close="outside" aria-expanded="false">Meal Plans</a>
+                    <a class="nav-link active dropdown-toggle" href="{{ route('subscribe.customization') }}"
+                        role="button">Meal Plans</a>
                 </li>
 
 
                 {{-- 3: contact --}}
                 <li class="nav-item"><a class="nav-link" href="#0">Contact</a></li>
-
 
 
 
@@ -93,7 +92,7 @@
                     <div class="icon"><i class="flaticon-phone-call"></i></div>
                     <div class="text">
                         <p>Need help?</p>
-                        <h5><a href="tel:500000000">052 000 0000</a></h5>
+                        <h5><a href="tel:{{ $globalProfile?->phone }}">{{ $globalProfile?->phone }}</a></h5>
                     </div>
                 </div>
 

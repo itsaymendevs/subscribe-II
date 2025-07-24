@@ -2105,6 +2105,7 @@ font-family: 'Outfit', sans-serif;
 }
 .team .item img {
     width: 100%;
+    object-fit: contain;
     transform: scale(1);
     transition: transform 500ms ease;
 }
@@ -5556,6 +5557,22 @@ height: 100% !important;
     width: 100%;
     text-align: right;
 }
+
+
+@media (max-width: 575px) {
+    .item-bundles.item .title {
+    padding: 0 20px 25px 40px;
+}
+}
+
+@media (max-width: 399px) {
+    .item-bundles.item .title {
+    padding: 0 20px 25px 25px;
+}
+}
+
+
+
 .blog2 .item .title h6 {
     color: var(--color-primary);
     font-size: 10px;
