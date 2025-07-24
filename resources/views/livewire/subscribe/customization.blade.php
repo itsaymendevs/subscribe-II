@@ -767,9 +767,19 @@
                                                                         <div class="bag-wrapper">
                                                                             <img src='{{ url("{$storagePath}bags/{$bag->imageFile}") }}'
                                                                                 alt="">
+
+
+                                                                            {{-- :: ex. beHealthy --}}
+                                                                            @if (env('APP_CLIENT') != 'BeHealthy')
+
                                                                             <h6 class='for-deposit mb-2'>Deposit {{
                                                                                 number_format($bag->price ?? 0) }}
                                                                                 AED</h6>
+
+                                                                            @endif
+                                                                            {{-- end if --}}
+
+
 
 
                                                                             {{-- checkbox --}}
