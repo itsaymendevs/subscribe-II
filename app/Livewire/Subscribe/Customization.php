@@ -80,7 +80,7 @@ class Customization extends Component
 
             // 1: checkReToken
             $reToken = session('reToken');
-            $customer = Customer::where('reToken', $reToken)?->first() ?? null;
+            $customer = Customer::where('reToken', $reToken)?->latest()?->first() ?? null;
 
 
 
@@ -338,9 +338,21 @@ class Customization extends Component
 
 
 
-
-
         $this->recalculate();
+
+
+
+
+        // --------------------------------------------------------
+        // --------------------------------------------------------
+
+
+
+
+
+
+
+
 
     } // end function
 

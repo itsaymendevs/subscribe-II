@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Subscribe\Customization;
+use App\Livewire\Subscribe\Helpers\Retoken;
 use App\Livewire\Subscribe\Invoice;
 use App\Livewire\Subscribe\Terms;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +87,8 @@ if (env('APP_ENV') == 'production') {
 // 1: customization
 Route::get('/', Customization::class)->name('subscribe.customization');
 Route::get('/customization', Customization::class)->name('subscribe.customization');
+Route::get('/customization/{token}', Retoken::class)->name('subscribe.retoken');
+
 
 
 // 2: invoice

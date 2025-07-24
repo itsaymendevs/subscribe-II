@@ -146,10 +146,8 @@
 
 
 
-
-
-        <footer
-            class="footer clearfix @if (Request::is('*/customization', 'customization', '/customization')) with-space @endif">
+        <footer class="footer clearfix
+            @if (Request::is('', '/', '*/customization', 'customization', '/customization')) with-space @endif">
             <div class="container">
                 <div class="bottom-footer-text">
                     <div class="row copyright">
@@ -165,6 +163,9 @@
                 </div>
             </div>
         </footer>
+
+
+
 
         {{-- ----------------------------------------- --}}
         {{-- ----------------------------------------- --}}

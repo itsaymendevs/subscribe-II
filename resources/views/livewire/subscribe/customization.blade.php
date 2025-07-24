@@ -452,7 +452,32 @@
 
                                                     {{-- price --}}
                                                     <div class="title summary-per-day">
-                                                        <h4>AED {{ number_format($this->instance->totalCheckoutPrice ??
+
+                                                        <h4>AED
+
+                                                            {{-- original Price --}}
+                                                            @if ($this->instance->planBundleRangeDiscountPrice ?? 0)
+
+                                                            <strong class='slashed'>{{
+                                                                number_format(($this->instance->totalCheckoutPrice ??
+                                                                0) + ($this->instance->planBundleRangeDiscountPrice ??
+                                                                0) + ($this->instance->promoCodeDiscountPrice ??
+                                                                0))}}</strong>
+
+                                                            @endif
+                                                            {{-- end if --}}
+
+
+
+
+                                                            {{-- ---------------------------- --}}
+                                                            {{-- ---------------------------- --}}
+
+
+
+
+                                                            {{-- discountPrice --}}
+                                                            {{ number_format($this->instance->totalCheckoutPrice ??
                                                             0) }}
                                                             <span>/ total price</span>
                                                         </h4>
@@ -709,16 +734,15 @@
                                                                             <div class="col-12" wire:ignore>
                                                                                 <label class='form--label'>Start
                                                                                     Date</label>
-                                                                                <input type="text"
-                                                                                    class="form-control input input-regular mb-0 datepicker"
-                                                                                    wire:model='instance.startDate'
+                                                                                <input type="date"
+                                                                                    class="form-control input input-regular mb-0"
+                                                                                    wire:model.live='instance.startDate'
+                                                                                    wire:change='changePlanDays'
                                                                                     @if($instance->initStartDate)
                                                                                 min='{{ $instance->initStartDate }}'
                                                                                 @endif
                                                                                 required>
                                                                             </div>
-
-
 
 
 
@@ -1107,7 +1131,7 @@
                                         {{-- summary --}}
                                         <div class="row">
                                             <div class="col-12 d-block d-lg-none mt-4">
-                                                <div class="sidebar-car">
+                                                <div class="sidebar-car" style="position: inherit">
 
 
 
@@ -1119,7 +1143,7 @@
 
                                                         {{-- promo --}}
                                                         <input type="text" class="form-control input input-regular mb-4 text-center
-                                                @if ($instance->promoCodeDiscountPrice > 0) active @endif"
+                                                        @if ($instance->promoCodeDiscountPrice > 0) active @endif"
                                                             wire:model='instance.promoCode'
                                                             wire:loading.class='no-events-processing'
                                                             wire:change.live='checkPromo()' placeholder="Discount Code">
@@ -1163,7 +1187,7 @@
 
 
                                                     {{-- plan-options --}}
-                                                    <div class="item pt-4">
+                                                    <div class="item pt-4" style="position: inherit">
 
 
 
@@ -1732,9 +1756,34 @@
 
                                             {{-- price --}}
                                             <div class="title summary-per-day">
-                                                <h4>AED {{ number_format($this->instance->totalCheckoutPrice ?? 0) }}
-                                                    <span>/ total
-                                                        price</span>
+                                                <h4>AED
+
+
+                                                    {{-- original Price --}}
+                                                    @if ($this->instance->planBundleRangeDiscountPrice ?? 0)
+
+                                                    <strong class='slashed'>{{
+                                                        number_format(($this->instance->totalCheckoutPrice ??
+                                                        0) + ($this->instance->planBundleRangeDiscountPrice ??
+                                                        0) + ($this->instance->promoCodeDiscountPrice ?? 0))}}</strong>
+
+                                                    @endif
+                                                    {{-- end if --}}
+
+
+
+
+                                                    {{-- ---------------------------- --}}
+                                                    {{-- ---------------------------- --}}
+
+
+
+                                                    {{-- discountPrice --}}
+                                                    <strong>
+                                                        {{ number_format($this->instance->totalCheckoutPrice ?? 0) }}
+                                                    </strong>
+
+                                                    <span>/ total price</span>
                                                 </h4>
                                             </div>
 
@@ -1955,27 +2004,25 @@
             carousel.options.autoplay = false;
             $(this).trigger('refresh.owl.carousel');
             })
-
         });
 
 
 
          // Datepicker
-         $(document).ready(function() {
+        //  $(document).ready(function() {
 
-                // getStartDate
-             var startDate = @json($instance->startDate);
+        //         // getStartDate
+        //      var startDate = @json($instance->startDate);
 
 
-              $(".datepicker").datepicker({
-                orientation: "top",
-                minDate: new Date(startDate)
-            }).on("change", function () {
-                @this.set('instance.startDate', $(this).val());
-                @this.changePlanDays();
-            });
-         })
-
+        //       $(".datepicker").datepicker({
+        //         orientation: "top",
+        //         minDate: new Date(startDate)
+        //     }).on("change", function () {
+        //         @this.set('instance.startDate', $(this).val());
+        //         @this.changePlanDays();
+        //     });
+        //  });
 
 
     </script>
