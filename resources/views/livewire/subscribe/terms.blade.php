@@ -180,8 +180,19 @@
                         <p class="term--point">Refund requests must be initiated via
                             official {{ env('APP_CLIENT_NAME') }} customer service channels</p>
 
+
+
+
+
+                        {{-- :: ex. beHealthy --}}
+                        @if (env('APP_CLIENT') != 'BeHealthy')
+
                         <p class="term--point">The cost of the bag will be deducted from
                             the refunded amount</p>
+
+                        @endif
+                        {{-- end if --}}
+
 
 
 
@@ -197,17 +208,46 @@
                         {{-- section --}}
                         <h3 class='text-white mt-5'>Delivery Policy</h3>
 
+
+
+                        {{-- :: ex. beHealthy --}}
+                        @if (env('APP_CLIENT') != 'BeHealthy')
+
                         <p class="term--point">All deliveries will be made in thermal
-                            cooler bags with ice packs to preserve freshness. A refundable deposit of 150 AED is
+                            cooler bags. A refundable deposit of 150 AED is
                             required for the cooler bags. This will be refunded at the end of the subscription upon
                             the return of all bags in good condition to ensure consistency with Clause No. 6 related
                             to the Refund and Cancellation Policy</p>
 
+                        @else
 
+                        <p class="term--point">All deliveries will be made in thermal
+                            cooler bags</p>
+
+                        @endif
+                        {{-- end if --}}
+
+
+
+
+                        {{-- :: ex. beHealthy --}}
+                        @if (env('APP_CLIENT') != 'BeHealthy')
 
                         <p class="term--point">Deliveries will be placed at the client's
                             doorstep during the agreed delivery time window. Clients must leave the empty cooler bag
                             at the doorstep for collection during the next delivery</p>
+
+
+                        @else
+
+                        <p class="term--point">Deliveries will be placed at the client's
+                            doorstep during the agreed delivery time window</p>
+
+                        @endif
+                        {{-- end if --}}
+
+
+
 
 
                         <p class="term--point">There is no delivery on Saturdays. Friday delivery will include two meal
@@ -217,6 +257,7 @@
 
                         <p class="term--point">Delivery changes must be requested at
                             least 3 business days in advance</p>
+
 
 
                         <p class="term--point">Unattended bags are the customer’s
@@ -236,10 +277,20 @@
                             microwave before consumption</p>
 
 
+
+
+
+
+                        {{-- :: ex. beHealthy --}}
+                        @if (env('APP_CLIENT') != 'BeHealthy')
+
                         <p class="term--point">Please note that the bag is considered an
                             integral part of the subscription. In the event that
                             the client cancels the subscription Kindly ensure this policy is applied when processing
                             any refund requests</p>
+
+                        @endif
+                        {{-- end if --}}
 
 
 
