@@ -391,6 +391,19 @@ class Invoice extends Component
     public function render()
     {
 
+
+        // :: removeInLocal
+        if (env('APP_PAYMENT') == 'local') {
+
+            Session::forget('logged-customer');
+            Session::forget('reToken');
+
+        } // end if
+
+
+
+
+
         return view('livewire.subscribe.invoice');
 
     } // end function

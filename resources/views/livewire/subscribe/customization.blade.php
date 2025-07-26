@@ -294,7 +294,6 @@
                                                     {{-- slide --}}
                                                     @foreach ($planBundles ?? [] as $planBundle)
 
-
                                                     <label class="item item-bundles"
                                                         key='single-plan-bundle-{{ $planBundle->id }}'
                                                         for='single-plan-bundle-{{ $planBundle->id }}'

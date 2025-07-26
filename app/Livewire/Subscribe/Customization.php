@@ -262,11 +262,15 @@ class Customization extends Component
         // 2.1: pickedPlanBundle
         $this->planBundles = PlanBundle::whereHas('days')
             ->where('planId', $this->pickedPlan?->id)
-            ->where('isForWebsite', true)->get();
+            ->where('isForWebsite', true)
+            ->whereHas('ranges', function ($query) {
+                $query->where('isForWebsite', 1)
+                    ->whereHas('range', function ($subQuery) {
+                        $subQuery->where('isForWebsite', 1);
+                    });
+            })->get();
 
         $this->pickedPlanBundle = $this->planBundles?->first() ?? null;
-
-
 
 
 
@@ -282,6 +286,7 @@ class Customization extends Component
 
 
         // 2.3: trigger changePlanBundle
+        $this->pickedPlanBundle ? $this->changePlanBundle($this->pickedPlanBundle?->id) : null;
         $this->pickedPlanBundle ? $this->changePlanBundle($this->pickedPlanBundle?->id) : null;
 
 
@@ -335,6 +340,12 @@ class Customization extends Component
 
         $this->paymentMethod = CustomerSubscriptionSetting::first()?->paymentMethod ?? null;
         $this->instance->paymentMethodId = $this->paymentMethod->id ?? null;
+
+
+
+
+        // 2.7: planBundleRange
+        $this->pickedPlanBundle ? $this->changePlanBundle($this->pickedPlanBundle?->id) : null;
 
 
 
@@ -474,6 +485,7 @@ class Customization extends Component
 
             } else {
 
+
                 if ($planBundleRange?->range?->isForWebsite == true) {
 
                     $this->pickedPlanBundleRange = $planBundleRange;
@@ -497,6 +509,7 @@ class Customization extends Component
 
         // 2.3: getBundleTypes
         foreach ($this->pickedPlanBundle->types as $bundleType) {
+
 
             $this->instance->planBundleTypes[$bundleType->mealType->id] = $bundleType->quantity;
 
@@ -1426,7 +1439,6 @@ class Customization extends Component
 
         // 2: storeCustomer
         Session::put('customer', $this->instance);
-
 
 
 

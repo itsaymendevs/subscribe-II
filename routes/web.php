@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Subscribe\Customization;
+use App\Livewire\Subscribe\Helpers\GetAccess;
 use App\Livewire\Subscribe\Helpers\Retoken;
 use App\Livewire\Subscribe\Invoice;
 use App\Livewire\Subscribe\Terms;
@@ -81,47 +82,55 @@ if (env('APP_ENV') == 'production') {
 
 
 
-
-
-
-// 1: customization
-Route::get('/', Customization::class)->name('subscribe.customization');
-Route::get('/customization', Customization::class)->name('subscribe.customization');
-Route::get('/customization/{token}', Retoken::class)->name('subscribe.retoken');
-
-
-
-// 2: invoice
-Route::get('/invoice', Invoice::class)->name('subscribe.invoice');
+// :: getAccess
+Route::get('/get-access/{id}', GetAccess::class)->name('subscribe.getAccess');
 
 
 
 
+Route::middleware(['hasAdminAccess'])->group(function () {
 
-// --------------------------------------------------------------------------
-// --------------------------------------------------------------------------
+    // 1: customization
+    Route::get('/', Customization::class)->name('subscribe.customization');
+    Route::get('/customization', Customization::class)->name('subscribe.customization');
+    Route::get('/customization/{token}', Retoken::class)->name('subscribe.retoken');
 
 
 
-
-// 3: terms & conditions
-Route::get('/terms-and-conditions', Terms::class)->name('subscribe.terms');
+    // 2: invoice
+    Route::get('/invoice', Invoice::class)->name('subscribe.invoice');
 
 
 
 
 
-// --------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 
 
 
 
-// :: plans-mirror
-Route::get('/{nameURL}', Customization::class)->name('subscribe.customizationPlan');
-Route::get('/{nameURL}/customization', Customization::class)->name('subscribe.customizationPlan');
+    // 3: terms & conditions
+    Route::get('/terms-and-conditions', Terms::class)->name('subscribe.terms');
 
 
+
+
+
+    // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+
+
+
+    // :: plans-mirror
+    Route::get('/{nameURL}', Customization::class)->name('subscribe.customizationPlan');
+    Route::get('/{nameURL}/customization', Customization::class)->name('subscribe.customizationPlan');
+
+
+
+
+});
 
 
 
