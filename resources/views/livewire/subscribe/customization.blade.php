@@ -852,7 +852,7 @@
                                                         <div class="acc-btn" wire:ignore.self>
                                                             <span class="count">3.</span> Personal Details
                                                         </div>
-                                                        <div class="acc-content">
+                                                        <div class="acc-content" wire:ignore.self>
                                                             <div class="content
                                                             @if ($instance?->isExistingCustomer) no-events @endif">
 

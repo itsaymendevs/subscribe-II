@@ -1186,6 +1186,87 @@ class Customization extends Component
 
 
 
+
+
+        // ----------------------------------------
+        // ----------------------------------------
+
+
+
+
+
+
+        // :: checkEmail
+        $fullEmail = explode('@', $this->instance->fullEmail);
+
+        $this->instance->email = $fullEmail[0];
+        $this->instance->emailProvider = "@{$fullEmail[1]}";
+
+
+        $emailExists = Customer::where('email', $this->instance->email)->where('emailProvider', $this->instance->emailProvider)->count();
+
+
+
+        if ($this->instance->isExistingCustomer == false) {
+
+            if ($emailExists > 0) {
+
+                $this->makeAlert('info', 'This email is already in use');
+
+                return false;
+
+            } // end if
+
+
+
+
+
+            // :: checkPhone
+            $phoneExists = Customer::where('phone', $this->instance->phone)->count();
+
+            if ($phoneExists > 0) {
+
+                $this->makeAlert('info', 'This phone is already in use');
+
+                return false;
+
+            } // end if
+
+
+
+
+        } // end if - isNotExisting
+
+
+
+
+
+
+        // ----------------------------------------
+        // ----------------------------------------
+
+
+
+
+
+        // :: checkUpcoming
+        $currentCustomer = Customer::where('email', $this->instance->email)->where('emailProvider', $this->instance->emailProvider)?->first();
+
+
+
+        if ($currentCustomer?->hasUpcomingSubscription() ?? null) {
+
+            $this->makeAlert('info', 'You already have an upcoming subscription, please try again after it starts');
+
+            return false;
+
+        } // end if
+
+
+
+
+
+        // ----------------------------------------
         // ----------------------------------------
 
 
@@ -1203,7 +1284,7 @@ class Customization extends Component
         if (count($deliveryDays) < $this->minimumDeliveryDays) {
 
 
-            // $this->makeAlert('info', 'Please select your delivery days');
+            $this->makeAlert('info', 'Please select your delivery days');
 
             return false;
 
@@ -1227,88 +1308,6 @@ class Customization extends Component
         // ----------------------------------------
         // ----------------------------------------
         // ----------------------------------------
-
-
-
-
-
-
-
-        // :: checkRecapture
-        if (! $this->captchaToken) {
-
-
-            // $this->makeAlert('info', 'Please complete the reCAPTCHA');
-
-            // return false;
-
-        } // end function
-
-
-
-
-
-
-
-        // ----------------------------------------
-        // ----------------------------------------
-
-
-
-
-        // :: checkEmail
-        $fullEmail = explode('@', $this->instance->fullEmail);
-
-        $this->instance->email = $fullEmail[0];
-        $this->instance->emailProvider = "@{$fullEmail[1]}";
-
-
-        $emailExists = Customer::where('email', $this->instance->email)->where('emailProvider', $this->instance->emailProvider)->count();
-
-
-
-        if ($this->instance->isExistingCustomer == false) {
-
-
-            if ($emailExists > 0) {
-
-                // $this->makeAlert('info', 'This email is already in use');
-
-                return false;
-
-            } // end if
-
-
-
-
-
-            // :: checkPhone
-            $phoneExists = Customer::where('phone', $this->instance->phone)->count();
-
-            if ($phoneExists > 0) {
-
-                // $this->makeAlert('info', 'This phone is already in use');
-
-                return false;
-
-            } // end if
-
-
-
-
-        } // end if - isNotExisting
-
-
-
-
-
-
-
-
-        // ----------------------------------------
-        // ----------------------------------------
-
-
 
 
 
@@ -1595,6 +1594,7 @@ class Customization extends Component
 
     public function render()
     {
+
 
         return view('livewire.subscribe.customization');
 

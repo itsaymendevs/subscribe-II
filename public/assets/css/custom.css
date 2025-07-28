@@ -702,3 +702,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* .car-details .sidebar-car {
     position: inherit;
 } */
+
+/* alert */
+
+.swal2-toast h2 {
+    font-weight: 500 !important;
+}
+
+div:where(.swal2-icon).swal2-info.swal2-icon-show {
+    animation: unset;
+}
+
+.swal2-toast.swal2-show {
+    animation: unset !important;
+}
+
+div:where(.swal2-icon).swal2-info {
+    border-color: #ff5050 !important;
+    color: #ff5050 !important;
+}

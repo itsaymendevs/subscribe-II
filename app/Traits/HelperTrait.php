@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Spatie\Image\Image;
 use Livewire\Attributes\On;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 
 trait HelperTrait
 {
@@ -598,19 +599,18 @@ trait HelperTrait
         if ($type == 'remove') {
 
 
-            // $this->alert('question', 'This item and related items will be permanently removed', [
-            //     'position' => 'bottom',
-            //     'timer' => '',
-            //     'toast' => true,
-            //     'width' => '400',
-            //     'showConfirmButton' => true,
-            //     'showCancelButton' => true,
-            //     'confirmButtonText' => 'Remove',
-            //     'cancelButtonText' => 'Cancel',
-            //     'confirmButtonColor' => '#dc3545',
-            //     'cancelButtonColor' => '#d3d3d3',
-            //     'onConfirmed' => $confirmMethod,
-            // ]);
+            $this->confirm('This item and related items will be permanently removed')
+                ->question()
+                ->showCancelButton()
+                ->confirmButtonText('Remove')
+                ->cancelButtonText('Cancel')
+                ->confirmButtonColor('#dc3545')
+                ->cancelButtonColor('#d3d3d3')
+                ->position('bottom')
+                ->width('400')
+                ->toast()
+                ->onConfirmed($confirmMethod);
+
 
 
 
@@ -618,19 +618,19 @@ trait HelperTrait
         } elseif ($type == 'question') {
 
 
-            // $this->alert('question', $message, [
-            //     'position' => 'bottom',
-            //     'timer' => '',
-            //     'toast' => true,
-            //     'width' => '400',
-            //     'showConfirmButton' => true,
-            //     'showCancelButton' => true,
-            //     'confirmButtonText' => 'Confirm',
-            //     'cancelButtonText' => 'Cancel',
-            //     'confirmButtonColor' => '#87b2a9',
-            //     'cancelButtonColor' => '#d3d3d3',
-            //     'onConfirmed' => $confirmMethod,
-            // ]);
+            $this->alert('question', $message, [
+                'position' => 'bottom',
+                'timer' => '',
+                'toast' => true,
+                'width' => '400',
+                'showConfirmButton' => true,
+                'showCancelButton' => true,
+                'confirmButtonText' => 'Confirm',
+                'cancelButtonText' => 'Cancel',
+                'confirmButtonColor' => '#87b2a9',
+                'cancelButtonColor' => '#d3d3d3',
+                'onConfirmed' => $confirmMethod,
+            ]);
 
 
 
@@ -638,13 +638,14 @@ trait HelperTrait
             // 3: success - info
         } else {
 
-            // $this->alert($type, $message, [
-            //     'position' => 'top',
-            //     'timer' => 1500,
-            //     'toast' => true,
-            //     'width' => '400',
-            //     'timerProgressBar' => true,
-            // ]);
+
+            LivewireAlert::title($message)
+                ->{$type}()
+                    ->position('top')
+                    ->toast()
+                    ->timer(3500)
+                    ->show();
+
 
         } // end if
 
