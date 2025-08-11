@@ -15,6 +15,11 @@
 
             {{-- body --}}
             <div class="modal-body">
+
+
+                {{-- :: checkPlan --}}
+                @if ($plan ?? null)
+
                 <div class="booking-box">
                     <div class="booking-inner clearfix" wire:loading.class='no-events-processing'>
 
@@ -206,6 +211,11 @@
 
                     </div>
                 </div>
+
+                @endif
+                {{-- end if --}}
+
+
             </div>
             {{-- endModalBody --}}
 

@@ -73,6 +73,8 @@ class Customization extends Component
     {
 
 
+
+
         // :: checkReToken
         if (session('reToken')) {
 
@@ -157,14 +159,29 @@ class Customization extends Component
 
             $this->pickedPlan = Plan::where('nameURL', $nameURL)?->first();
 
+
+
+            // :: redirectAgain
+            if (! $this->pickedPlan) {
+
+                $this->pickedPlan = Plan::whereNotNull('planCategoryId')?->first();
+                $this->redirect(route('subscribe.customizationPlan', [$this->pickedPlan->nameURL]), navigate: false);
+
+            } // end if
+
+
         } else {
 
-            $this->pickedPlan = Plan::find($this->plans?->first()?->id);
+
+            $this->pickedPlan = Plan::whereNotNull('planCategoryId')?->first();
+            $this->redirect(route('subscribe.customizationPlan', [$this->pickedPlan->nameURL]), navigate: false);
+
 
         } // end if
 
 
         $this->instance->planId = $this->pickedPlan?->id;
+
 
 
 
@@ -270,8 +287,8 @@ class Customization extends Component
                     });
             })->get();
 
-        $this->pickedPlanBundle = $this->planBundles?->first() ?? null;
 
+        $this->pickedPlanBundle = $this->planBundles?->first() ?? null;
 
 
 
@@ -350,12 +367,6 @@ class Customization extends Component
 
 
         $this->recalculate();
-
-
-
-
-        // --------------------------------------------------------
-        // --------------------------------------------------------
 
 
 
