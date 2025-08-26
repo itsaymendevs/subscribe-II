@@ -155,7 +155,12 @@
                             <p class="mb-0">Powered by
                                 <a href="https://doer.ae" target="_blank"
                                     style="background-image: none; background: none;">
+                                    @if ($customization?->colorLayoutText == 'Light')
                                     <img src="{{ url('assets/img/doer.png') }}" alt="" class='powered-by--logo'>
+                                    @else
+                                    <img src="{{ url('assets/img/doer-dark.png') }}" alt="" class='powered-by--logo'>
+                                    @endif
+                                    {{-- end if --}}
                                 </a>
                             </p>
                         </div>

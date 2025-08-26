@@ -551,12 +551,21 @@
 
 
 
-
     {{-- -------------------------------------------------- --}}
     {{-- -------------------------------------------------- --}}
     {{-- -------------------------------------------------- --}}
 
 
+
+
+    {{-- section --}}
+    @section('modals')
+
+    {{-- bmi --}}
+    <livewire:subscribe.customization.components.customization-bmi key='bmi-calculator--modal' />
+
+    @endsection
+    {{-- endSection --}}
 
 
 

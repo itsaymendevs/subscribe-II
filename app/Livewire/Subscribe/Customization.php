@@ -941,11 +941,6 @@ class Customization extends Component
 
 
 
-
-
-
-
-
         // 1: recalculatePrice
         $this->instance->totalPlanBundleRangePrice = intval($this->instance->planDays ?? 0) * $this->instance->planBundleRangePricePerDay;
 

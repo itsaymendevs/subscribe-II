@@ -13,11 +13,22 @@
         :root {
 
 
-            /* fonts */
-            /* --text-font: <?php echo "$globalProfile->textFont" ?>; */
-            /* #8cb6a0 */
-            /* colors */
-            --color-primary: <?php echo "$globalProfile->colorPrimary" ?>;
+            /* body */
+            --color-body: <?php echo "$customization->colorBody" ?>;
+            --color-text: <?php echo "$colorBodyText" ?>;
+            --color-text-dim: <?php echo "$colorBodyTextDim" ?>;
+
+            /* layout */
+            --color-layout: <?php echo "$customization->colorLayout" ?>;
+            --color-layout-text: <?php echo "$colorLayoutText" ?>;
+            --color-layout-text-dim: <?php echo "$colorLayoutTextDim" ?>;
+
+            /* primary + secondary + border */
+            --color-primary: <?php echo "$customization->colorPrimary" ?>;
+            --color-secondary: <?php echo "$customization->colorSecondary" ?>;
+            --color-border: <?php echo "$customization->colorBorder" ?>;
+            --color-button-text: <?php echo "$colorButtonText" ?>;
+
         }
     </style>
 

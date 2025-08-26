@@ -38,7 +38,7 @@
 
 
                                         {{-- top --}}
-                                        <div class="row align-items-end mb-3">
+                                        <div class="row align-items-end ">
                                             <div class="col-12 col-md-12 text-center">
 
 
@@ -75,7 +75,7 @@
 
 
                                                 {{-- name - price --}}
-                                                <h2 class='text-light mb-3 mb-md-3'>{{ $plan?->name }}</h2>
+                                                <h2 class='mb-3 mb-md-3'>{{ $plan?->name }}</h2>
 
 
                                                 {{-- price --}}
@@ -110,7 +110,7 @@
 
 
                                         {{-- brief --}}
-                                        <p class='plan-details--desc mb-4 text-center'>{{ $plan?->desc }}</p>
+                                        {{-- <p class='plan-details--desc mb-4 text-center'>{{ $plan?->desc }}</p> --}}
 
 
                                         {{-- description --}}

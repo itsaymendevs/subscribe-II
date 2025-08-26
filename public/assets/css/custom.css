@@ -7,6 +7,15 @@ p {
     padding: 120px 0 0px;
 }
 
+.form-check-input {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+}
+
+.form-check-input:checked[type="checkbox"] {
+    background-image: none !important;
+}
+
 .text--secondary {
     color: var(--color-primary);
 }
@@ -22,8 +31,8 @@ p {
 
 /* selection */
 .selection--label {
-    color: #999;
-    border: 1px solid #343434;
+    color: var(--color-layout-text-dim);
+    border: 1px solid var(--color-border);
     padding: 2px 12px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -51,7 +60,7 @@ p {
     line-height: initial;
     width: 28px;
     height: 14px;
-    color: white;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +86,7 @@ p {
 .selection--label:has(input:checked) {
     background-color: var(--color-primary);
     border: 1px solid var(--color-primary);
-    color: #1b1b1b;
+    color: var(--color-button-text);
 }
 
 input[type="password"],
@@ -86,22 +95,18 @@ input[type="text"],
 input[type="file"],
 input[type="date"],
 textarea {
-    border: 1px solid #343434;
+    border: 1px solid var(--color-border);
     outline: none;
     font-size: 15px;
     box-shadow: none !important;
-    background-color: #222 !important;
-    color: #999 !important;
+    background-color: var(--color-layout) !important;
+    color: var(--color-layout-text-dim) !important;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
     border-color: var(--color-primary) !important;
-}
-
-.text-light {
-    color: #fff;
 }
 
 .input-regular {
@@ -112,7 +117,7 @@ select:focus {
     appearance: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
     filter: unset;
     filter: brightness(0) invert(1);
 }
@@ -131,7 +136,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 0px !important;
     box-shadow: none !important;
     border-radius: 3px !important;
-    min-width: 14px;
+    min-width: 16px;
+    height: 16px;
+    border-color: var(--color-border);
 }
 
 .form-check-input:checked {
@@ -140,8 +147,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .checkbox-wrapper label {
-    color: #999;
-    margin-left: 7px;
+    color: var(--color-text-dim);
+    margin-left: 8px;
 }
 
 .checkbox-wrapper.for-allergen {
@@ -161,7 +168,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .checkbox-wrapper.for-terms label {
     font-size: 15px;
     margin-left: 12px;
-    border-bottom: 1px dashed #303030;
+    border-bottom: 1px dashed var(--color-border);
 }
 
 .checkbox-wrapper.for-allergen label {
@@ -169,7 +176,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #ffffffc8;
+    color: var(--color-layout-text);
     font-size: 15px;
 }
 
@@ -183,7 +190,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .allergen-wrapper {
-    border: 1px solid #343434;
+    border: 1px dashed var(--color-border);
     border-radius: 10px;
     padding: 15px 10px 10px;
 }
@@ -198,7 +205,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .bag-wrapper .for-deposit {
-    color: #fff;
+    color: var(--color-layout-text);
     font-weight: 400;
 }
 
@@ -234,6 +241,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
     justify-content: center;
     font-weight: 600;
+}
+
+.submit-button.for-bmi {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
 }
 
 /* plans */
@@ -273,11 +286,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     white-space: pre-wrap;
 }
 
+.item-plans .title h4 {
+    color: #fff !important;
+}
+
 .item-plans.active {
     border: 3px solid var(--color-primary);
 }
 .item-plans.active .curv-butn .icon {
     background-color: var(--color-primary);
+    color: var(--color-button-text);
 }
 
 .item-bundles {
@@ -344,7 +362,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .item-bundles:hover .butn .icon {
     background-color: initial !important;
-    color: white !important;
+    color: var(--color-layout-text) !important;
 }
 
 .item-bundles:has(input:checked) {
@@ -353,7 +371,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .item-bundles:has(input:checked) .butn .icon {
     background-color: var(--color-primary) !important;
-    color: #1b1b1b !important;
+    color: var(--color-button-text) !important;
 }
 
 .bundle-details span {
@@ -398,9 +416,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-top: 3px;
 }
 .select2-container--default .select2-search--dropdown .select2-search__field {
-    border: 1px solid #343434 !important;
-    background-color: #222222;
-    color: #ffffff80;
+    border: 1px solid var(--color-border) !important;
+    background-color: var(--color-layout);
+    color: var(--color-layout-text-dim);
     border-radius: 8px 8px 0px 0px;
     padding: 10px 20px;
 }
@@ -417,15 +435,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .nav-pills .nav-link {
     border-radius: 0px;
     border-radius: 0px;
-    color: white;
+    color: var(--color-text);
     min-width: 100px;
-    border: 1px solid #343434;
+    border: 1px solid var(--color-border);
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: #1b1b1b;
+    color: var(--color-button-text);
 }
 
 /* collapse */
@@ -434,10 +452,54 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .form--label {
-    color: white;
+    color: var(--color-layout-text);
     font-size: 15px;
 }
 
+.form--label.for-bmi {
+    font-size: 21px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px !important;
+}
+
+.form--label.for-bmi.for-result {
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 20px !important;
+}
+
+.form--label.for-bmi-status {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px !important;
+}
+
+.form--label.for-bmi span {
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form--label.for-bmi span:before {
+    font-size: 8px;
+    content: "(";
+    margin-left: 1px;
+    margin-right: 2px;
+}
+
+.form--label.for-bmi span:after {
+    font-size: 8px;
+    content: ")";
+    margin-right: 1px;
+    margin-left: 2px;
+}
+@media (max-width: 575px) {
+    .form--label.for-bmi {
+        font-size: 18px;
+        margin-bottom: 10px !important;
+    }
+}
 /* summary */
 .summary-per-day {
     border-radius: 0px !important;
@@ -470,9 +532,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 40px 40px;
 }
 
+.booking-box.for-bmi {
+    padding: 40px 30px;
+}
+
+.blog2 .item .curv-butn .br-left-top {
+    fill: var(--color-layout);
+}
+.blog2 .item .curv-butn .br-right-bottom {
+    fill: var(--color-layout);
+}
+
 /* details */
 .plan-details--price {
-    color: white;
+    color: var(--color-layout-text);
     font-size: 17px;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -486,7 +559,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .plan-details--subheading {
     display: inline-block;
-    color: white;
+    color: var(--color-layout-text);
     margin-bottom: 5px;
     font-weight: 500;
     font-size: 16px;
@@ -495,9 +568,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .plan-details--desc {
-    color: #bfbfbf;
-    font-size: 16px;
-    line-height: 26px;
+    color: var(--color-layout-text);
+    font-size: 14px;
+    line-height: initial;
 }
 
 .plan-details--gallery img {
@@ -508,7 +581,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     object-fit: contain;
     margin-bottom: 15px;
     padding-bottom: 15px;
-    border-right: 1px dashed #282828;
+    border-right: 1px dashed var(--color-border);
 }
 
 .plan-details--gallery img:nth-of-type(even) {
@@ -524,9 +597,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .plan-details--tags span {
     display: inline-flex;
     border: 1px solid var(--color-primary);
-    color: #bfbfbf;
+    color: var(--color-layout-text);
     padding: 4px 12px;
     font-size: 13px;
+    font-weight: 400;
     margin-right: 0px;
     border-radius: 0px;
     line-height: initial;
@@ -538,11 +612,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .plan-details--tags.filled span {
-    background-color: var(--color-primary);
-    border-color: #1b1b1b;
-    color: #1b1b1b;
+    background-color: var(--color-layout);
+    border-color: var(--color-secondary);
+    color: var(--color-layout-text);
     margin-top: 10px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 @media (max-width: 575px) {
@@ -567,18 +641,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .label--icon {
     margin-left: 9px;
-    color: var(--color-primary);
+    color: var(--color-layout-text);
     font-size: 17px;
 }
 
 .booking-button.for-cancel {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
+    background-color: var(--bs-danger);
+    color: var(--color-button-text);
+    border: 1px solid var(--bs-danger);
 }
 
 .summary--hr {
-    border: 1px dashed #2a2a2a;
+    border: 1px dashed var(--color-border);
     width: 100%;
     display: flex;
 }
@@ -599,7 +673,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .summary--line h6 {
     width: 30%;
     text-align: right;
-    color: white;
+    color: var(--color-layout-text);
     font-size: 13px;
     margin-bottom: 5px;
     font-weight: 500;
@@ -612,7 +686,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .summary--line.main p:first-of-type {
     font-size: 16px;
     font-weight: 600;
-    color: white;
+    color: var(--color-layout-text);
     margin-bottom: 4px;
 }
 
@@ -626,18 +700,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .footer {
     margin-top: 30px;
-    background-color: #222222;
+    background-color: var(--color-layout);
 }
 
 .footer.with-space {
     margin-top: 0px;
-    margin-bottom: 73px;
-    background-color: #222222;
+    margin-bottom: 71px;
+    background-color: var(--color-layout);
 }
 
 @media (max-width: 575px) {
     .footer.with-space {
-        margin-bottom: 68px;
+        margin-bottom: 66px;
     }
 }
 .footer .copyright {
@@ -656,16 +730,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .copyright p {
     font-size: 14px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
-    color: white;
+    color: var(--color-layout-text);
 }
 .powered-by--logo {
     width: 60px;
     object-fit: contain;
     margin-top: -5px;
-    margin-left: 1px;
-    height: 25px;
+    margin-left: 2px;
+    height: 24px;
 }
 
 .mb-term {
@@ -721,3 +795,104 @@ div:where(.swal2-icon).swal2-info {
     border-color: #ff5050 !important;
     color: #ff5050 !important;
 }
+
+.bmi--card {
+    box-shadow: 0px 0px 1px var(--color-border);
+    background-color: var(--color-layout);
+    border-radius: 30px;
+    padding: 14px 5px;
+    display: block !important;
+    margin-bottom: 15px;
+}
+
+.bmi--section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bmi--card.for-gender,
+.bmi--card.for-gender * {
+    cursor: pointer;
+}
+
+.bmi--card.for-gender.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-button-text);
+}
+
+.bmi--card.for-gender.active label {
+    color: var(--color-button-text);
+}
+
+.bmi--card.for-gender .form--label.for-bmi {
+    margin-bottom: 0px !important;
+}
+
+.input-regular.for-bmi {
+    background-color: transparent !important;
+    border: none;
+    border-radius: 0px !important;
+    appearance: none;
+    font-size: 28px;
+    width: 52px;
+    color: var(--color-layout-text-dim) !important;
+    margin: 0px 20px;
+    text-align: center;
+    padding: 0px !important;
+    font-weight: 600;
+}
+
+@media (max-width: 575px) {
+    .input-regular.for-bmi {
+        font-size: 26px;
+        width: 52px;
+        margin: 0px 14px;
+    }
+}
+
+.bmi--value {
+    font-size: 30px;
+    width: 45px;
+    color: var(--color-primary);
+    margin: 0px 20px;
+    text-align: center;
+}
+
+@media (max-width: 575px) {
+    .bmi--value {
+        font-size: 24px;
+        width: 50px;
+        margin: 0px 10px;
+    }
+}
+
+.bmi--card a {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    box-shadow: 0px 0px 1px var(--color-border);
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+@media (max-width: 575px) {
+    .bmi--card a {
+        width: 27px;
+        min-width: 27px;
+        height: 27px;
+        font-size: 15px;
+        font-size: 15px;
+    }
+}
+
+.bmi--card a:focus {
+    border: 1px solid var(--color-primary);
+}
+
+/* colors-layout */

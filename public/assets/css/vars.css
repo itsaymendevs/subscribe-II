@@ -1,3 +1,35 @@
 :root {
-    --color-primary: #f5b754;
+    /* body */
+    /* --color-body: #fff;
+    --color-text: #111;
+    --color-text-dim: #454545; */
+
+    /* layout */
+    /* --color-layout: #ebebeb;
+    --color-layout-text: #111;
+    --color-layout-text-dim: #454545; */
+
+    /* primary + secondary + border */
+    /* --color-primary: #7dd1a5;
+    --color-secondary: #f5b754;
+    --color-border: #8d8d8d;
+    --color-button-text: #111; */
+
+    /* aleens */
+
+    /* body */
+    --color-body: #fff;
+    --color-text: #222;
+    --color-text-dim: #454545;
+
+    /* layout */
+    --color-layout: #f8f8f8;
+    --color-layout-text: #111;
+    --color-layout-text-dim: #454545;
+
+    /* primary + secondary + border */
+    --color-primary: #00a651;
+    --color-secondary: #f7941d;
+    --color-border: #8d8d8d;
+    --color-button-text: #fff;
 }

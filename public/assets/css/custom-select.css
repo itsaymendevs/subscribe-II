@@ -8,7 +8,7 @@
 .select2 {
     height: 46px !important;
     border-radius: 8px !important;
-    border: 1px solid #343434;
+    border: 1px solid var(--color-border);
     margin-bottom: 0px;
 }
 
@@ -40,19 +40,19 @@
 .form-select {
     max-width: 100%;
     padding: 18.5px 20px;
-    background-color: #222;
+    background-color: var(--color-layout);
     display: block;
     width: 100%;
     line-height: 1.5em;
     font-size: 14px;
-    font-weight: 300;
-    color: #999;
+    font-weight: 400;
+    color: var(--color-layout-text-dim);
     background-image: none;
     height: 46px;
     padding-top: 0px;
     padding-bottom: 0px;
     border-radius: 8px;
-    border: 1px solid #343434;
+    border: 1px solid var(--color-border);
     outline: none;
     box-shadow: none !important;
 }

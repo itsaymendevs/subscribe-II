@@ -115,7 +115,7 @@
                             {{-- title --}}
                             <div class="d-block text-center mb-30">
                                 <div class="section-subtitle">{{ env('APP_CLIENT_NAME') }}</div>
-                                <div class="section-title"><span class='fw-700'>{{ $planCategory?->name }}</span></div>
+                                <div class="section-title">{{ $planCategory?->name }}</div>
                             </div>
 
 
@@ -183,19 +183,19 @@
 
                                             {{-- theCurv --}}
                                             <div class="br-left-top">
-                                                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                <svg viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg"
                                                     class="w-11 h-11">
                                                     <path
-                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z"
-                                                        fill="#1b1b1b"></path>
+                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z">
+                                                    </path>
                                                 </svg>
                                             </div>
                                             <div class="br-right-bottom">
-                                                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                <svg viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg"
                                                     class="w-11 h-11">
                                                     <path
-                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z"
-                                                        fill="#1b1b1b"></path>
+                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z">
+                                                    </path>
                                                 </svg>
                                             </div>
 
@@ -270,7 +270,7 @@
 
 
                             {{-- customization --}}
-                            <form wire:submit='continue' class="car-details section-padding pt-4 mt-2">
+                            <form wire:submit='continue' class="car-details  section-padding pt-4 mt-2">
                                 <div class="row">
 
 
@@ -330,23 +330,23 @@
 
                                                             {{-- theCurve --}}
                                                             <div class="br-left-top">
-                                                                <svg viewBox="0 0 11 11" fill="none"
+                                                                <svg viewBox="0 0 11 11"
                                                                     xmlns="http://www.w3.org/2000/svg"
                                                                     class="w-11 h-11">
                                                                     <path
-                                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z"
-                                                                        fill="#1b1b1b"></path>
+                                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z">
+                                                                    </path>
                                                                 </svg>
                                                             </div>
 
 
                                                             <div class="br-right-bottom">
-                                                                <svg viewBox="0 0 11 11" fill="none"
+                                                                <svg viewBox="0 0 11 11"
                                                                     xmlns="http://www.w3.org/2000/svg"
                                                                     class="w-11 h-11">
                                                                     <path
-                                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z"
-                                                                        fill="#1b1b1b"></path>
+                                                                        d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z">
+                                                                    </path>
                                                                 </svg>
                                                             </div>
 
@@ -388,7 +388,7 @@
 
                                             {{-- details --}}
                                             <div class="col-12 d-block d-lg-none mt-4">
-                                                <div class="sidebar-car">
+                                                <div class="sidebar-car colors--layout colors--layout">
 
 
 
@@ -510,11 +510,12 @@
                                         {{-- dropdowns --}}
                                         <div class="row justify-content-center">
                                             <div class="col-md-12">
-                                                <ul class="accordion-box clearfix">
+                                                <ul class="accordion-box  clearfix">
 
 
                                                     {{-- planDetails --}}
-                                                    <li class="accordion block active-block" wire:ignore.self>
+                                                    <li class="accordion block colors--layout active-block"
+                                                        wire:ignore.self>
                                                         <div class="acc-btn collapse--title active" wire:ignore.self>
                                                             <span class="count">1.</span> Plan Details
                                                         </div>
@@ -734,7 +735,7 @@
                                                                                 <label class='form--label'>Start
                                                                                     Date</label>
                                                                                 <input type="date"
-                                                                                    class="form-control input input-regular mb-0"
+                                                                                    class="form-control input input-regular mb-0 @if($customization->colorLayoutText == 'Light') invert-icon @endif"
                                                                                     wire:model.live='instance.startDate'
                                                                                     wire:change='changePlanDays'
                                                                                     @if($instance->initStartDate)
@@ -762,7 +763,9 @@
 
 
                                                                     {{-- right --}}
-                                                                    <div class="col-12 col-md-6">
+                                                                    <div
+                                                                        class="col-12 col-md-6
+                                                                    @if (env('APP_CLIENT') == 'Healthylicious') d-none @endif">
                                                                         <div class="bag-wrapper">
                                                                             <img src='{{ url("{$storagePath}bags/{$bag->imageFile}") }}'
                                                                                 alt="">
@@ -848,7 +851,7 @@
 
 
                                                     {{-- personalDetails --}}
-                                                    <li class="accordion block" wire:ignore.self>
+                                                    <li class="accordion block colors--layout" wire:ignore.self>
                                                         <div class="acc-btn" wire:ignore.self>
                                                             <span class="count">3.</span> Personal Details
                                                         </div>
@@ -964,7 +967,7 @@
 
 
                                                     {{-- addressDetails --}}
-                                                    <li class="accordion block" wire:ignore.self>
+                                                    <li class="accordion block colors--layout" wire:ignore.self>
                                                         <div class="acc-btn" wire:ignore.self>
                                                             <span class="count">4.</span> Address Details
                                                         </div>
@@ -1140,7 +1143,7 @@
                                         {{-- summary --}}
                                         <div class="row">
                                             <div class="col-12 d-block d-lg-none mt-4">
-                                                <div class="sidebar-car" style="position: inherit">
+                                                <div class="sidebar-car colors--layout" style="position: inherit">
 
 
 
@@ -1435,7 +1438,7 @@
 
 
                                         {{-- bundleDetails --}}
-                                        <div class="sidebar-car">
+                                        <div class="sidebar-car colors--layout">
                                             <div class="item pb-2 mb-2">
 
 
@@ -1494,7 +1497,7 @@
 
 
                                         {{-- planDetails + promo --}}
-                                        <div class="sidebar-car mt-4">
+                                        <div class="sidebar-car colors--layout mt-4">
 
 
 
@@ -2064,6 +2067,11 @@
     {{-- login / logout --}}
     <livewire:subscribe.customization.components.customization-login key='login--modal' />
     <livewire:subscribe.customization.components.customization-logout key='logout--modal' />
+
+
+
+    {{-- bmi --}}
+    <livewire:subscribe.customization.components.customization-bmi key='bmi-calculator--modal' />
 
 
     @endsection

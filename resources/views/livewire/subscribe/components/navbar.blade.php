@@ -5,8 +5,7 @@
         {{-- logo --}}
         <div class="logo-wrapper">
             <a class="logo " href="{{ route('subscribe.customization') }}">
-                <img src='{{ url("{$storagePath}profile/{$globalProfile->imageFile}") }}' class="logo-img invert"
-                    alt="" />
+                <img src='{{ url("{$storagePath}profile/{$globalProfile->imageFile}") }}' class="logo-img" alt="" />
             </a>
         </div>
 
@@ -43,8 +42,15 @@
                 </li>
 
 
-                {{-- 3: contact --}}
-                <li class="nav-item"><a class="nav-link" href="#0">Contact</a></li>
+                {{-- 3: bmi --}}
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);" data-bs-toggle='modal'
+                        data-bs-target='#bmi--modal'>BMI Calculator</a></li>
+
+
+
+                {{-- 4: blogs --}}
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);">Blogs</a></li>
+
 
 
 
@@ -55,11 +61,10 @@
                         data-bs-target='#login--modal'>Login</a></li>
 
 
-
                 {{-- showAccount --}}
                 @else
 
-                <li class="nav-item" style="border: 1px solid white; border-radius: 8px;">
+                <li class="nav-item" style="border: 2px solid var(--color-primary); border-radius: 5px;">
                     <a class="nav-link text-center" href="javascript:void(0);" data-bs-toggle='modal'
                         data-bs-target='#logout--modal'>{{ session('hide-login') }}</a>
                 </li>
@@ -67,7 +72,6 @@
 
                 @endif
                 {{-- end if --}}
-
 
 
             </ul>
