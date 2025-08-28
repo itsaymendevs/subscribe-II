@@ -546,75 +546,6 @@
 
 
 
-                                                                            {{-- planDays --}}
-                                                                            <div class="col-12 mb-4">
-                                                                                <label
-                                                                                    class='form--label d-block mb-1'>Plan
-                                                                                    Days</label>
-
-
-                                                                                {{-- single --}}
-
-                                                                                {{-- loop - planDays --}}
-                                                                                @foreach ($planBundleDays ?? []
-                                                                                as $key => $planBundleDay)
-
-
-                                                                                <label class='selection--label for-days'
-                                                                                    for='planDays-{{ $key }}'
-                                                                                    wire:loading.class='no-events-processing'
-                                                                                    wire:target='changePlanBundleRange, changePlanBundle, changePlan, changePlanDays'>{{
-                                                                                    $planBundleDay->days }}
-
-
-                                                                                    <input type="radio" class='d-none'
-                                                                                        name="planDays"
-                                                                                        wire:model='instance.planDays'
-                                                                                        wire:change='changePlanDays'
-                                                                                        id="planDays-{{ $key }}"
-                                                                                        value='{{ $planBundleDay->days }}'>
-
-
-
-                                                                                    {{-- discount-icon --}}
-                                                                                    @if ($planBundleDay?->discount ??
-                                                                                    null)
-
-                                                                                    <span>{{ $planBundleDay?->discount
-                                                                                        ?? 0 }}</span>
-
-                                                                                    @endif
-                                                                                    {{-- end if --}}
-
-
-
-                                                                                </label>
-
-                                                                                @endforeach
-                                                                                {{-- end loop --}}
-
-
-
-                                                                            </div>
-                                                                            {{-- endPlanDays --}}
-
-
-
-
-
-
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-
-
-
-
-
-
-
 
 
 
@@ -672,6 +603,72 @@
 
 
                                                                             </div>
+
+
+
+
+
+                                                                            {{-- ----------------------------- --}}
+                                                                            {{-- ----------------------------- --}}
+                                                                            {{-- ----------------------------- --}}
+                                                                            {{-- ----------------------------- --}}
+                                                                            {{-- ----------------------------- --}}
+
+
+
+
+
+                                                                            {{-- planDays --}}
+                                                                            <div class="col-12 mb-4">
+                                                                                <label
+                                                                                    class='form--label d-block mb-1'>Plan
+                                                                                    Days</label>
+
+
+                                                                                {{-- single --}}
+
+                                                                                {{-- loop - planDays --}}
+                                                                                @foreach ($planBundleDays ?? []
+                                                                                as $key => $planBundleDay)
+
+
+                                                                                <label class='selection--label for-days'
+                                                                                    for='planDays-{{ $key }}'
+                                                                                    wire:loading.class='no-events-processing'
+                                                                                    wire:target='changePlanBundleRange, changePlanBundle, changePlan, changePlanDays'>{{
+                                                                                    $planBundleDay->days }}
+
+
+                                                                                    <input type="radio" class='d-none'
+                                                                                        name="planDays"
+                                                                                        wire:model='instance.planDays'
+                                                                                        wire:change='changePlanDays'
+                                                                                        id="planDays-{{ $key }}"
+                                                                                        value='{{ $planBundleDay->days }}'>
+
+
+
+                                                                                    {{-- discount-icon --}}
+                                                                                    @if ($planBundleDay?->discount ??
+                                                                                    null)
+
+                                                                                    <span>{{ $planBundleDay?->discount
+                                                                                        ?? 0 }}</span>
+
+                                                                                    @endif
+                                                                                    {{-- end if --}}
+
+
+
+                                                                                </label>
+
+                                                                                @endforeach
+                                                                                {{-- end loop --}}
+
+
+
+                                                                            </div>
+                                                                            {{-- endPlanDays --}}
 
 
 
