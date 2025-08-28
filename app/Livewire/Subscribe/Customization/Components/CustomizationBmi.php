@@ -10,7 +10,7 @@ class CustomizationBmi extends Component
 
 
     use HelperTrait;
-    public $weight, $height, $age, $gender, $bmi, $bmiStatus, $showResult;
+    public $option, $weight, $height, $age, $gender, $bmi, $bmiStatus, $showResult, $bmr;
 
 
     public function mount()
@@ -22,6 +22,7 @@ class CustomizationBmi extends Component
         $this->weight = 0;
         $this->height = 0;
         $this->showResult = false;
+        $this->option = "BMI";
 
     } // end function
 
@@ -125,6 +126,8 @@ class CustomizationBmi extends Component
         if ($this->weight && $this->height && $this->age && $this->gender) {
 
 
+
+            // :: bmi
             $this->showResult = true;
             $this->bmi = round($this->weight / (($this->height / 100) * ($this->height / 100)), precision: 1);
 
@@ -148,6 +151,43 @@ class CustomizationBmi extends Component
                 $this->bmiStatus = "Obese";
 
             } // end if
+
+
+
+
+
+            // -------------------------------------------------------------------
+            // -------------------------------------------------------------------
+
+
+
+
+            // 1.3: checkGender
+            if ($this->gender == 'Male') {
+
+                $convertedAge = $this->age * 5;
+                $convertedWeight = $this->weight * 10;
+                $convertedHeight = $this->height * 6.25;
+
+                $this->bmr = round($convertedWeight + $convertedHeight - $convertedAge + 5);
+
+
+            } else {
+
+                $convertedAge = $this->age * 5;
+                $convertedWeight = $this->weight * 10;
+                $convertedHeight = $this->height * 4.7;
+
+                $this->bmr = round($convertedWeight + $convertedHeight - $convertedAge - 161);
+
+
+            } // end if
+
+
+
+
+
+
 
         } else {
 
@@ -183,9 +223,11 @@ class CustomizationBmi extends Component
         $this->weight = 0;
         $this->height = 0;
         $this->bmi = null;
+        $this->bmr = null;
         $this->bmiStatus = null;
         $this->gender = null;
         $this->showResult = false;
+
 
 
     } // end function

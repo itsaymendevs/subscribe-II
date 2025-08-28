@@ -4,6 +4,8 @@ use App\Livewire\Subscribe\Customization;
 use App\Livewire\Subscribe\Helpers\GetAccess;
 use App\Livewire\Subscribe\Helpers\Retoken;
 use App\Livewire\Subscribe\Invoice;
+use App\Livewire\Subscribe\PrivacyPolicy;
+use App\Livewire\Subscribe\RefundPolicy;
 use App\Livewire\Subscribe\Terms;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -110,8 +112,10 @@ Route::get('/invoice', Invoice::class)->name('subscribe.invoice');
 
 
 
-// 3: terms & conditions
+// 3: privacy + terms & conditions
+Route::get('/privacy-policy', PrivacyPolicy::class)->name('subscribe.privacyPolicy');
 Route::get('/terms-and-conditions', Terms::class)->name('subscribe.terms');
+Route::get('/refund-policy', RefundPolicy::class)->name('subscribe.refundPolicy');
 
 
 

@@ -16,10 +16,17 @@
             {{-- body --}}
             <div class="modal-body">
                 <div class="booking-box for-bmi">
+
+
+
+
+
+
+
+                    {{-- 1: BMI + BMR --}}
                     <form wire:submit='calculate' class="booking-inner clearfix"
                         wire:loading.class='no-events-processing'>
 
-                        {{-- row --}}
 
 
 
@@ -27,7 +34,9 @@
                         <div class="row  @if (!$showResult) d-none @endif">
 
 
-                            {{-- height --}}
+                            {{-- bmi-result --}}
+                            @if ($option == 'BMI')
+
                             <div class="col-12 px-1">
                                 <div class="bmi--card">
 
@@ -36,10 +45,45 @@
                                     <label class='form--label for-bmi-status d-block mb-1'>Your BMI Category is
                                         <strong>{{ $bmiStatus ?? 0 }}</strong></label>
 
+                                </div>
+                            </div>
+
+                            @endif
+                            {{-- end if --}}
+
+
+
+
+                            {{-- ------------------------------------------------- --}}
+                            {{-- ------------------------------------------------- --}}
+
+
+
+
+                            {{-- bmr-result --}}
+                            @if ($option == 'BMR')
+
+                            <div class="col-12 px-1">
+                                <div class="bmi--card">
+
+                                    {{-- label --}}
+                                    <label class='form--label for-bmi for-result d-block mb-1'>{{ number_format($bmr ??
+                                        0) }}</label>
+                                    <label class='form--label for-bmi-status d-block mb-1'>Your body’s daily calorie
+                                        burn at rest</label>
 
                                 </div>
                             </div>
 
+                            @endif
+                            {{-- end if --}}
+
+
+
+
+
+                            {{-- ------------------------------------------------- --}}
+                            {{-- ------------------------------------------------- --}}
 
 
 
@@ -69,6 +113,38 @@
 
                         {{-- information-row --}}
                         <div class="row @if ($showResult) d-none @endif">
+
+
+
+
+
+                            {{-- switch --}}
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center align-items-center mb-30">
+                                    <label class="switch--label" for='calculate-option-1'>BMI
+                                        <input type="radio" name='calculate-option' wire:model='option' value='BMI'
+                                            class='d-none' id='calculate-option-1'>
+                                    </label>
+
+                                    <label class="switch--label" for='calculate-option-2'>BMR
+                                        <input type="radio" name='calculate-option' wire:model='option' value='BMR'
+                                            class='d-none' id='calculate-option-2'>
+                                    </label>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            {{-- ----------------------------------------------- --}}
+                            {{-- ----------------------------------------------- --}}
+                            {{-- ----------------------------------------------- --}}
+
+
+
 
 
 
@@ -237,6 +313,12 @@
 
 
                     </form>
+                    {{-- endForm --}}
+
+
+
+
+
                 </div>
             </div>
             {{-- endModalBody --}}

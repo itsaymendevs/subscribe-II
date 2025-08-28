@@ -3,12 +3,10 @@
 namespace App\Livewire\Subscribe;
 
 use App\Models\WebsiteSetting;
-use App\Traits\HelperTrait;
 use Livewire\Component;
 
-class Terms extends Component
+class RefundPolicy extends Component
 {
-
 
 
     public $websiteSettings;
@@ -37,7 +35,7 @@ class Terms extends Component
     {
 
 
-        return view('livewire.subscribe.terms');
+        return view('livewire.subscribe.refund-policy');
 
     } // end function
 
@@ -45,4 +43,3 @@ class Terms extends Component
 
 
 } // end class
-

@@ -425,7 +425,7 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
 
 @media screen and (max-width: 991px) {
     .section-title {
-        font-size: 27px;
+        font-size: 25px;
         border-inline-end: initial;
         margin-bottom: 0px;
     }
@@ -460,13 +460,17 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
     font-size: 21px;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 10px !important;
+    margin-bottom: 7px !important;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--color-border);
 }
 
 .form--label.for-bmi.for-result {
     font-size: 32px;
     margin-top: 15px;
-    margin-bottom: 20px !important;
+    padding-bottom: 14px;
+    margin-bottom: 16px !important;
+    font-weight: 600;
 }
 
 .form--label.for-bmi-status {
@@ -516,7 +520,7 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
 
 @media (max-width: 767px) {
     .summary-per-day h4 {
-        font-size: 25px !important;
+        font-size: 24px !important;
     }
 }
 
@@ -670,6 +674,30 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
     width: 70%;
 }
 
+.summary--line p span.including {
+    font-size: 12px;
+}
+
+.summary--line p span.including.sm {
+    font-size: 11px;
+}
+
+.summary--line p span.including:before,
+span.including.fixed:before {
+    content: "(";
+    margin-right: 2px;
+    font-size: 8px;
+    margin-left: 3px;
+}
+
+.summary--line p span.including:after,
+span.including.fixed:after {
+    content: ")";
+    margin-left: 2px;
+    font-size: 8px;
+    margin-right: 3px;
+}
+
 .summary--line h6 {
     width: 30%;
     text-align: right;
@@ -770,7 +798,7 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
     text-decoration: line-through;
     color: var(--bs-danger);
     font-weight: 600 !important;
-    margin: 0px 5px;
+    margin: 0px 4px;
 }
 
 /* .car-details .sidebar-car {
@@ -796,8 +824,47 @@ div:where(.swal2-icon).swal2-info {
     color: #ff5050 !important;
 }
 
+.header--bmi {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: end;
+}
+
+.header--bmi button {
+    height: 38px;
+    width: 130px;
+    font-size: 14px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .header--bmi {
+        position: relative;
+        bottom: unset;
+        left: unset;
+        right: unset;
+        justify-content: center;
+        z-index: 1;
+        top: unset;
+        margin-top: 12px;
+    }
+
+    .header--bmi button {
+        height: 36px;
+        width: 200px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+}
+
 .bmi--card {
-    box-shadow: 0px 0px 1px var(--color-border);
+    /* box-shadow: 0px 0px 1px var(--color-border); */
+    border: 1px solid var(--color-border);
     background-color: var(--color-layout);
     border-radius: 30px;
     padding: 14px 5px;
@@ -814,6 +881,7 @@ div:where(.swal2-icon).swal2-info {
 .bmi--card.for-gender,
 .bmi--card.for-gender * {
     cursor: pointer;
+    padding: 4.5px 0px;
 }
 
 .bmi--card.for-gender.active {
@@ -828,6 +896,7 @@ div:where(.swal2-icon).swal2-info {
 
 .bmi--card.for-gender .form--label.for-bmi {
     margin-bottom: 0px !important;
+    border-bottom: none;
 }
 
 .input-regular.for-bmi {
@@ -869,15 +938,14 @@ div:where(.swal2-icon).swal2-info {
 }
 
 .bmi--card a {
-    width: 40px;
-    min-width: 40px;
-    height: 40px;
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0px;
-    box-shadow: 0px 0px 1px var(--color-border);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-border);
     border-radius: 50%;
 }
 
@@ -896,3 +964,87 @@ div:where(.swal2-icon).swal2-info {
 }
 
 /* colors-layout */
+
+/* switch labels */
+.switch--label {
+    min-width: 100px;
+    border: 1px solid var(--color-border);
+    color: var(--color-layout-text);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    border-radius: 12px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.switch--label:first-of-type {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.switch--label:last-of-type {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.switch--label:has(input:checked) {
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
+}
+
+/* privacy wrapper */
+.privacy--wrapper * {
+    color: var(--color-text);
+    line-height: inherit;
+}
+
+.privacy--wrapper p,
+.privacy--wrapper ul {
+    line-height: inherit;
+    font-size: 14px;
+    margin-bottom: 0px;
+    color: var(--color-text-dim);
+}
+
+.privacy--wrapper strong {
+    font-weight: 700;
+}
+
+.privacy--wrapper * {
+    list-style: initial;
+}
+
+.privacy--wrapper h1,
+.privacy--wrapper h2,
+.privacy--wrapper h3,
+.privacy--wrapper h4,
+.privacy--wrapper h5,
+.privacy--wrapper h6 {
+    margin-bottom: 10px;
+    margin-top: 40px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: initial;
+}
+
+@media (max-width: 767px) {
+    .privacy--wrapper p,
+    .privacy--wrapper ul {
+        line-height: inherit;
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .privacy--wrapper h1,
+    .privacy--wrapper h2,
+    .privacy--wrapper h3,
+    .privacy--wrapper h4,
+    .privacy--wrapper h5,
+    .privacy--wrapper h6 {
+        font-size: 21px;
+    }
+}

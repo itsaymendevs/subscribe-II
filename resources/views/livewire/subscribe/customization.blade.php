@@ -113,9 +113,18 @@
 
 
                             {{-- title --}}
-                            <div class="d-block text-center mb-30">
+                            <div class="d-block text-center mb-30 position-relative">
                                 <div class="section-subtitle">{{ env('APP_CLIENT_NAME') }}</div>
                                 <div class="section-title">{{ $planCategory?->name }}</div>
+
+
+
+                                {{-- bmi-calculator --}}
+                                <div class="header--bmi">
+                                    <button class="booking-button submit-button" data-bs-toggle='modal'
+                                        data-bs-target="#bmi--modal">BMI Calculator</button>
+                                </div>
+
                             </div>
 
 
@@ -478,7 +487,8 @@
                                                             {{-- discountPrice --}}
                                                             {{ number_format($this->instance->totalCheckoutPrice ??
                                                             0) }}
-                                                            <span>/ total price</span>
+                                                            <span>/ total price<span class='including fixed'>incl.
+                                                                    VAT</span></span>
                                                         </h4>
                                                     </div>
 
@@ -763,9 +773,8 @@
 
 
                                                                     {{-- right --}}
-                                                                    <div
-                                                                        class="col-12 col-md-6
-                                                                    @if (env('APP_CLIENT') == 'Healthylicious') d-none @endif">
+                                                                    <div class="col-12 col-md-6
+                                                                    @if (!$instance->bag) d-none @endif">
                                                                         <div class="bag-wrapper">
                                                                             <img src='{{ url("{$storagePath}bags/{$bag->imageFile}") }}'
                                                                                 alt="">
@@ -830,6 +839,7 @@
                                                     @if ($instance?->isExistingCustomer) d-none @endif"
                                                         wire:ignore.self>
                                                         <div class="acc-btn" wire:ignore.self data-bs-toggle='modal'
+                                                            data-bs-target='#login--modal'
                                                             data-bs-target="#excludes--modal">
                                                             <span class="count">2.</span> Allergens & Dislikes
                                                         </div>
@@ -1379,12 +1389,12 @@
 
 
 
-                                                        <div class="summary--section">
+                                                        {{-- <div class="summary--section">
                                                             <div class="summary--line">
                                                                 <p>TAX</p>
                                                                 <h6>{{ number_format($instance?->taxPrice ?? 0) }}</h6>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
 
 
@@ -1393,7 +1403,9 @@
 
                                                         <div class="summary--section">
                                                             <div class="summary--line">
-                                                                <p>Total Price</p>
+                                                                <p>Total Price<span class='including'>incl.
+                                                                        VAT</span>
+                                                                </p>
                                                                 <h6 class='fw-700'>{{
                                                                     number_format($instance?->totalCheckoutPrice ?? 0)
                                                                     }} AED
@@ -1729,12 +1741,12 @@
 
 
 
-                                                <div class="summary--section">
+                                                {{-- <div class="summary--section">
                                                     <div class="summary--line">
                                                         <p>TAX</p>
                                                         <h6>{{ number_format($instance?->taxPrice ?? 0) }}</h6>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
 
 
@@ -1743,7 +1755,7 @@
 
                                                 <div class="summary--section">
                                                     <div class="summary--line">
-                                                        <p>Total Price</p>
+                                                        <p>Total Price<span class='including sm'>incl. VAT</span></p>
                                                         <h6 class='fw-700'>{{
                                                             number_format($instance?->totalCheckoutPrice ?? 0) }} AED
                                                         </h6>
@@ -1795,7 +1807,8 @@
                                                         {{ number_format($this->instance->totalCheckoutPrice ?? 0) }}
                                                     </strong>
 
-                                                    <span>/ total price</span>
+                                                    <span>/ total price<span class='including fixed'>incl.
+                                                            VAT</span></span>
                                                 </h4>
                                             </div>
 

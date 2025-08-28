@@ -3,10 +3,9 @@
 namespace App\Livewire\Subscribe;
 
 use App\Models\WebsiteSetting;
-use App\Traits\HelperTrait;
 use Livewire\Component;
 
-class Terms extends Component
+class PrivacyPolicy extends Component
 {
 
 
@@ -37,7 +36,7 @@ class Terms extends Component
     {
 
 
-        return view('livewire.subscribe.terms');
+        return view('livewire.subscribe.privacy-policy');
 
     } // end function
 
@@ -45,4 +44,3 @@ class Terms extends Component
 
 
 } // end class
-

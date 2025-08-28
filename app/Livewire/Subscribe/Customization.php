@@ -296,7 +296,7 @@ class Customization extends Component
 
         // 2.2: optionalBag - defaultBag
         $this->hasOptionalBag = $settings->hasOptionalBag;
-        $this->instance->bag = true;
+        $this->instance->bag = $settings?->hasBag ?? true;
         $this->instance->bagPrice = $this->bag->price ?? 0;
 
 
