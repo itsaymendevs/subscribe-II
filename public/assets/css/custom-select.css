@@ -12,6 +12,10 @@
     margin-bottom: 0px;
 }
 
+.for-part .select2 {
+    border-radius: 8px 0px 0px 8px !important;
+}
+
 .select1_inner.multiple .select2 {
     height: 82px !important;
     overflow: hidden;
@@ -29,7 +33,7 @@
 }
 
 .select2-results__option {
-    padding: 10px 20px;
+    padding: 10px 20px 10px 20px;
     text-align: left;
 }
 
@@ -55,4 +59,12 @@
     border: 1px solid var(--color-border);
     outline: none;
     box-shadow: none !important;
+}
+
+.for-part .form-select {
+    border-radius: 8px 0px 0px 8px !important;
+}
+
+.select1_wrapper.for-part {
+    min-width: 100px;
 }

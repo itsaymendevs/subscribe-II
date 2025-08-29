@@ -75,7 +75,7 @@ body {
     word-wrap: break-word;
 }
 body {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.95em;
@@ -84,7 +84,7 @@ body {
     background-color: var(--color-body);
 }
 p {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.95em;
@@ -115,7 +115,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 700;
     line-height: 1.5em;
     margin: 0 0 15px 0;
@@ -145,7 +145,7 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
 }
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -171,7 +171,7 @@ textarea {
     display: block;
     width: 100%;
     line-height: 1.5em;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: var(--color-text-dim);
@@ -256,7 +256,7 @@ input[type="submit"]:hover {
 /* placeholder */
 ::-webkit-input-placeholder {
     color: var(--color-layout-text-dim);
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
 }
@@ -316,7 +316,7 @@ input[type="submit"]:hover {
     font-weight: 700;
 }
 .count {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
 }
 .valign {
     display: -webkit-box;
@@ -679,7 +679,7 @@ hr {
 }
 .section-title {
     font-size: 35px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     position: relative;
     margin-bottom: 15px;
@@ -699,7 +699,7 @@ hr {
 .section-subtitle {
     font-size: 10px;
     line-height: 10px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 500;
     color: var(--color-text);
     margin-bottom: 15px;
@@ -716,6 +716,7 @@ hr {
 /* ======= Navbar style ======= */
 .navbar {
     position: absolute;
+    backdrop-filter: blur(30px);
     left: 0;
     top: 0;
     width: 100%;
@@ -742,7 +743,7 @@ hr {
     color: var(--color-text);
 }
 .navbar .navbar-nav .nav-link {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: var(--color-text);
@@ -768,7 +769,8 @@ hr {
     color: var(--color-primary);
 }
 .nav-scroll {
-    background: var(--color-layout);
+    background: transparent;
+    backdrop-filter: blur(30px);
     padding: 0 0 0 0;
     position: fixed;
     top: -100px;
@@ -787,7 +789,7 @@ hr {
     color: var(--color-text);
 }
 .nav-scroll .navbar-nav .nav-link {
-    color: var(--color-layout-text);
+    color: var(--color-text);
 }
 .nav-scroll .navbar-nav .active {
     color: var(--color-primary);
@@ -803,7 +805,7 @@ hr {
     margin-bottom: 0px;
 }
 .nav-scroll .logo-wrapper .logo h2 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 30px;
     font-weight: 700;
     display: block;
@@ -823,7 +825,7 @@ hr {
     float: left;
 }
 .logo-wrapper .logo h2 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 28px;
     font-weight: 700;
     display: block;
@@ -858,7 +860,7 @@ hr {
 }
 .navbar .dropdown-menu .dropdown-item {
     padding: 7px 0;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: var(--color-text);
@@ -1185,7 +1187,7 @@ hr {
     color: var(--color-primary);
 }
 .header .caption h5 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: var(--color-text);
@@ -1391,7 +1393,7 @@ hr {
     display: inline-grid;
 }
 .parallax-header h5 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: var(--color-text);
@@ -1465,7 +1467,7 @@ hr {
     text-transform: uppercase;
 }
 .parallax-header2 .item .head .title {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 60px;
     font-weight: 800;
     line-height: 60px;
@@ -1632,7 +1634,7 @@ hr {
     display: inline-grid;
 }
 .kenburns-inner .caption h5 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: var(--color-text);
@@ -1757,7 +1759,7 @@ hr {
 }
 .slider-grid-bg .text .subtitle {
     display: block;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 10px;
     font-weight: 400;
     color: var(--color-primary);
@@ -1767,7 +1769,7 @@ hr {
 }
 .slider-grid-bg .text .title {
     display: block;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 700;
     font-size: 21px;
     line-height: 1.2em;
@@ -1842,7 +1844,7 @@ hr {
     display: inline-grid;
 }
 .video-fullscreen-wrap h5 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: var(--color-text);
@@ -1936,7 +1938,7 @@ hr {
 .banner-header h6 {
     font-size: 10px;
     line-height: 10px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 400;
     color: var(--color-primary);
     margin-bottom: 15px;
@@ -2261,7 +2263,7 @@ hr {
     white-space: normal;
     margin: 0;
     color: #1b1b1b;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     letter-spacing: 0;
 }
 .team-single .wrapper .cont .coll h5 {
@@ -2274,7 +2276,7 @@ hr {
     vertical-align: middle;
     transition: color 0.3s;
     color: #1b1b1b;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     letter-spacing: 0;
 }
 /* team-single social */
@@ -2344,12 +2346,12 @@ hr {
     cursor: pointer;
     color: var(--color-text);
     font-size: 14px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
 }
 .team-single .cont .simpl-bord .nav-link.active {
     font-weight: 700;
     color: var(--color-primary);
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
 }
 .team-single .tab-content p {
@@ -2414,7 +2416,7 @@ hr {
 }
 .cars1 .item .con .title,
 .cars1 .item .con .title a {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 21px;
     margin-bottom: 0px;
     color: var(--color-text);
@@ -2448,7 +2450,7 @@ hr {
     padding: 14px 21px;
     color: #1b1b1b;
     border-radius: 30px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 400;
     font-size: 14px;
 }
@@ -2473,7 +2475,7 @@ hr {
     color: var(--color-text-dim);
 }
 .cars1 .item .con .book .price {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 21px;
     line-height: 1.2em;
     color: var(--color-primary);
@@ -2699,7 +2701,7 @@ hr {
     font-style: normal;
 }
 .cars2 .item .curv-butn .icon i span {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 700;
     line-height: 15px;
     vertical-align: middle;
@@ -2707,7 +2709,7 @@ hr {
     color: var(--color-primary);
 }
 .cars2 .item .curv-butn .icon i span i {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 12px;
@@ -3217,7 +3219,7 @@ hr {
     text-align: center;
 }
 .car-details .sidebar-car .title h4 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 32px;
     line-height: 1.2em;
     color: var(--color-button-text);
@@ -3225,7 +3227,7 @@ hr {
     margin: 0;
 }
 .car-details .sidebar-car .title h4 > span {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
@@ -3259,7 +3261,7 @@ hr {
     position: relative;
     text-align: center;
     margin: 10px 0;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
 }
@@ -3489,7 +3491,7 @@ hr {
     font-size: 21px;
 }
 .car-types3 .item .text p {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: var(--color-text-dim);
@@ -3511,7 +3513,7 @@ hr {
     border-radius: 50%;
     overflow: hidden;
     background-color: #222;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     text-align: center;
     -webkit-transition: all 0.2s linear;
@@ -3866,13 +3868,13 @@ hr {
 }
 .services1 .item .text h5 {
     border-radius: 20px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     font-weight: 700;
     font-size: 21px;
 }
 .services1 .item .text p {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.95em;
@@ -3895,7 +3897,7 @@ hr {
     border-radius: 50%;
     overflow: hidden;
     background-color: #222;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     font-weight: 700;
     font-size: 14px;
@@ -4149,13 +4151,13 @@ hr {
 }
 .process .item .text h5 {
     border-radius: 20px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     font-weight: 700;
     font-size: 21px;
 }
 .process .item .text p {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.95em;
@@ -4178,7 +4180,7 @@ hr {
     border-radius: 50%;
     overflow: hidden;
     background-color: #222;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     font-weight: 700;
     font-size: 14px;
@@ -4344,13 +4346,13 @@ hr {
 }
 .testimonials .item .text h5 {
     border-radius: 20px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-primary);
     font-weight: 700;
     font-size: 14px;
 }
 .testimonials .item .text p {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.95em;
@@ -4379,14 +4381,14 @@ hr {
     object-fit: cover;
 }
 .testimonials .item .info h6 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     font-weight: 400;
     font-size: 14px;
     margin-bottom: 0;
 }
 .testimonials .item .info p {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5em;
@@ -4432,7 +4434,7 @@ hr {
     position: relative;
 }
 .gallery-filter li {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 17px;
     font-weight: 700;
     margin-right: 15px;
@@ -4817,13 +4819,13 @@ body.mfp-zoom-out-cur {
     padding-right: 60px;
     color: var(--color-layout-text);
     transition: all 500ms ease;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
 }
 .accordion-box .block .acc-btn .count {
     color: var(--color-primary);
     padding-right: 5px;
     font-weight: 700;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
 }
 .accordion-box .block .acc-btn.active .count {
@@ -4879,7 +4881,7 @@ body.mfp-zoom-out-cur {
     overflow: hidden;
 }
 .price .item h3 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     color: var(--color-text);
     font-weight: 700;
     font-size: 24px;
@@ -5175,7 +5177,7 @@ body.mfp-zoom-out-cur {
     background: var(--color-layout);
     color: var(--color-layout-text);
     border: 1px solid var(--color-border);
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     text-decoration: none;
     line-height: 60px;
@@ -5236,6 +5238,7 @@ body.mfp-zoom-out-cur {
 .select1_wrapper {
     margin-bottom: 0;
 }
+
 .select1_inner {
     position: relative;
 }
@@ -5490,7 +5493,7 @@ body.mfp-zoom-out-cur {
     font-size: 12px;
 }
 .blog1 .item .wrapper .con .text {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 21px;
     color: var(--color-text);
     font-weight: 700;
@@ -5672,18 +5675,35 @@ body.mfp-zoom-out-cur {
     font-style: normal;
 }
 .blog2 .item .curv-butn .icon i span {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 600;
     line-height: 15px;
     vertical-align: middle;
-    font-size: 21px;
+    font-size: 19px;
 }
+
 .blog2 .item .curv-butn .icon i span i {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 12px;
 }
+
+/* .blog2 .item .curv-butn .icon.for-pricing i span i {
+    font-size: 10px;
+    font-weight: 500;
+    display: block;
+}
+
+.blog2 .item .curv-butn .icon.for-pricing i span i:last-of-type {
+    margin-bottom: 0px;
+    margin-top: 2px;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 1px;
+    display: none;
+} */
+
 .blog2 .item:hover .curv-butn .icon i.icon-show,
 .blog2 .item .curv-butn .icon i.icon-hidden {
     display: none;
@@ -5942,7 +5962,7 @@ body.mfp-zoom-out-cur {
     font-size: 12px;
     color: var(--color-text-dim);
     font-weight: 400;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     letter-spacing: 0;
     display: block;
     text-transform: none;
@@ -6283,7 +6303,7 @@ body.mfp-zoom-out-cur {
     padding: 10px 100px 10px 20px;
     height: 60px;
     display: block;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     background: transparent;
     color: #1b1b1b;
@@ -6373,7 +6393,7 @@ body.mfp-zoom-out-cur {
     color: #1b1b1b;
     font-weight: 400;
     text-align: center;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     transition: border-color 300ms ease, transform 300ms ease,
         background-color 300ms ease, color 300ms ease;
@@ -6412,7 +6432,7 @@ body.mfp-zoom-out-cur {
     color: var(--color-text);
     font-weight: 400;
     text-align: center;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     transition: border-color 300ms ease, transform 300ms ease,
         background-color 300ms ease, color 300ms ease;
@@ -6452,7 +6472,7 @@ body.mfp-zoom-out-cur {
     color: var(--color-text);
     font-weight: 400;
     text-align: center;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 14px;
     transition: border-color 300ms ease, transform 300ms ease,
         background-color 300ms ease, color 300ms ease;
@@ -6558,7 +6578,7 @@ body.mfp-zoom-out-cur {
     margin-bottom: 15px;
 }
 .footer-logo h2 {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-size: 30px;
     font-weight: 700;
     display: flex;
@@ -7126,7 +7146,7 @@ body.mfp-zoom-out-cur {
     border-radius: 0px;
 }
 .modal-title {
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font), sans-serif;
     font-weight: 700;
     font-size: 24px;
     color: var(--color-button-text);

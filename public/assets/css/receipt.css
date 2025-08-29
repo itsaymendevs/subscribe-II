@@ -176,7 +176,7 @@
 /* currency */
 
 .receipt--wrapper .with-currency:before {
-    content: "AED";
+    content: "Dhs";
     margin-right: 4px;
 }
 

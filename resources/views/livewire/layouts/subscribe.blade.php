@@ -34,8 +34,22 @@
 
 
         {{-- fonts --}}
+        @if ($globalProfile?->fontLinks)
+
+        {!! $globalProfile?->fontLinks !!}
+
+        @else
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" />
+
+        @endif
+        {{-- end if --}}
+
+
+
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
@@ -117,6 +131,16 @@
 
 
 
+        {{-- floating-whatsapp --}}
+        <div class="floating--whatsapp" wire:ignore>
+            <a href="https://wa.me/{{ $globalProfile?->whatsapp }}?text=Hi%2C%20I%20need%20help%20choosing%20a%20meal%20plan."
+                target="_blank">
+                <img src="{{ url('assets/img/whatsapp.png') }}" alt="">
+            </a>
+        </div>
+
+
+
 
         {{-- ----------------------------------------- --}}
         {{-- ----------------------------------------- --}}
@@ -128,6 +152,8 @@
 
 
         {{ $slot }}
+
+
 
 
 

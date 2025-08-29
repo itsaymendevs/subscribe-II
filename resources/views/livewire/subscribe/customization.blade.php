@@ -619,7 +619,7 @@
 
 
                                                                             {{-- planDays --}}
-                                                                            <div class="col-12 mb-4">
+                                                                            <div class="col-12 mb-3">
                                                                                 <label
                                                                                     class='form--label d-block mb-1'>Plan
                                                                                     Days</label>
@@ -836,7 +836,6 @@
                                                     @if ($instance?->isExistingCustomer) d-none @endif"
                                                         wire:ignore.self>
                                                         <div class="acc-btn" wire:ignore.self data-bs-toggle='modal'
-                                                            data-bs-target='#login--modal'
                                                             data-bs-target="#excludes--modal">
                                                             <span class="count">2.</span> Allergens & Dislikes
                                                         </div>
@@ -905,15 +904,71 @@
 
 
 
+
+                                                                    {{-- -------------------------------------- --}}
+                                                                    {{-- -------------------------------------- --}}
+
+
+
                                                                     {{-- phone --}}
                                                                     <div class="col-12 col-sm-6 col-md-6 col-xl-4">
                                                                         <label
                                                                             class='form--label d-block mb-1'>Phone</label>
-                                                                        <input type="text"
-                                                                            class="form-control input input-regular mb-4"
-                                                                            wire:model='instance.phone' pattern="[0-9]+"
-                                                                            minlength="9" maxlength="9" required>
+
+
+                                                                        {{-- parts --}}
+                                                                        <div class="d-flex input--parts">
+
+
+                                                                            {{-- 1 --}}
+                                                                            <div class="select1_wrapper text-center for-part no-events mb-4"
+                                                                                wire:ignore>
+                                                                                <div class="select1_inner text-center">
+                                                                                    <select
+                                                                                        class="select2 select form--select form--regular-select"
+                                                                                        style="width: 100%"
+                                                                                        value="{{ $instance->phoneKey }}"
+                                                                                        data-instance='instance.phoneKey'
+                                                                                        required>
+
+                                                                                        {{-- loop - countries --}}
+                                                                                        @foreach ($countries ?? []
+                                                                                        as $country)
+
+                                                                                        <option
+                                                                                            value="{{ $country->code }}">
+                                                                                            {{
+                                                                                            $country->code }}</option>
+
+                                                                                        @endforeach
+                                                                                        {{-- end loop --}}
+
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            {{-- 2 --}}
+                                                                            <input type="text"
+                                                                                class="form-control input text-center input-regular for-part mb-4"
+                                                                                wire:model='instance.phone'
+                                                                                pattern="[0-9]+" minlength="9"
+                                                                                maxlength="9" required>
+
+                                                                        </div>
+                                                                        {{-- endParts --}}
+
                                                                     </div>
+                                                                    {{-- endPhone --}}
+
+
+
+
+
+                                                                    {{-- -------------------------------------- --}}
+                                                                    {{-- -------------------------------------- --}}
+
+
 
 
 
@@ -922,12 +977,53 @@
                                                                     <div class="col-12 col-sm-6 col-md-6 col-xl-4">
                                                                         <label
                                                                             class='form--label d-block mb-1'>Whatsapp</label>
-                                                                        <input type="text"
-                                                                            class="form-control input input-regular mb-4"
-                                                                            wire:model='instance.whatsapp'
-                                                                            pattern="[0-9]+" minlength="6"
-                                                                            maxlength="10" required>
+
+
+                                                                        {{-- parts --}}
+                                                                        <div class="d-flex input--parts">
+
+
+                                                                            {{-- 1 --}}
+                                                                            <div class="select1_wrapper text-center for-part mb-4"
+                                                                                wire:ignore>
+                                                                                <div class="select1_inner text-center"
+                                                                                    wire:loading.class='no-events-processing'>
+                                                                                    <select
+                                                                                        class="select2 select form--select form--regular-select"
+                                                                                        style="width: 100%"
+                                                                                        value="{{ $instance->whatsappKey }}"
+                                                                                        data-instance='instance.whatsappKey'
+                                                                                        required>
+
+                                                                                        {{-- loop - countries --}}
+                                                                                        @foreach ($countries ?? []
+                                                                                        as $country)
+
+                                                                                        <option
+                                                                                            value="{{ $country->code }}">
+                                                                                            {{
+                                                                                            $country->code }}</option>
+
+                                                                                        @endforeach
+                                                                                        {{-- end loop --}}
+
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            {{-- 2 --}}
+                                                                            <input type="text"
+                                                                                class="form-control text-center input input-regular for-part mb-4"
+                                                                                wire:model='instance.whatsapp'
+                                                                                pattern="[0-9]+" minlength="5"
+                                                                                maxlength="10" required>
+
+                                                                        </div>
+                                                                        {{-- endParts --}}
+
                                                                     </div>
+                                                                    {{-- endWhatsapp --}}
 
 
 

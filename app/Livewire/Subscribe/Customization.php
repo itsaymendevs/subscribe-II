@@ -59,7 +59,7 @@ class Customization extends Component
 
 
     // :: PART 2
-    public $plan, $cities, $countryCodes, $district, $paymentMethod, $subscriptionSettings;
+    public $plan, $cities, $countries, $countryCodes, $district, $paymentMethod, $subscriptionSettings;
     public $customerWallet;
     public $isProcessing = false, $policy = false;
     public $captchaToken;
@@ -268,6 +268,7 @@ class Customization extends Component
 
         // 2: dependencies
         $this->cities = City::all();
+        $this->countries = CountryCode::all();
         $this->bag = Bag::first();
         $this->countryCodes = CountryCode::all();
 

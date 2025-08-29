@@ -14,6 +14,7 @@
 
 
             /* body */
+            --font: <?php echo "$globalProfile?->textFont" ?>;
             --color-body: <?php echo "$customization->colorBody" ?>;
             --color-text: <?php echo "$colorBodyText" ?>;
             --color-text-dim: <?php echo "$colorBodyTextDim" ?>;
