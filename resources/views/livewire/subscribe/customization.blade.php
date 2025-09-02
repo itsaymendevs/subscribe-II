@@ -293,7 +293,7 @@
 
 
                                         {{-- slider + details --}}
-                                        <div class="row team mb-4">
+                                        <div class="row team">
 
                                             {{-- slider --}}
                                             <div class="col-md-12">
@@ -387,6 +387,13 @@
 
                                                 </div>
                                             </div>
+                                            {{-- endSlider --}}
+
+
+
+
+
+
 
 
 
@@ -519,6 +526,79 @@
 
                                         {{-- dropdowns --}}
                                         <div class="row justify-content-center">
+
+
+
+                                            {{-- calorieRanges --}}
+                                            <div class="col-12">
+                                                <div class="plan-bundles--wrapper">
+
+
+
+                                                    {{-- title --}}
+                                                    <label class='form--label d-block mb-1'>Calorie Range</label>
+
+
+                                                    {{-- loop - planBundleRanges --}}
+                                                    @foreach ($planBundleRanges ?? []
+                                                    as $planBundleRange)
+
+
+
+                                                    {{-- checkOGRange --}}
+                                                    @if($planBundleRange->range->isForWebsite
+                                                    == true &&
+                                                    $planBundleRange?->range?->name
+                                                    != 'Customized')
+
+
+                                                    <label class='selection--label'
+                                                        wire:loading.class='no-events-processing'
+                                                        for='planBundleRange-{{ $planBundleRange->id }}'
+                                                        wire:click="changePlanBundleRange('{{ $planBundleRange->id }}')"
+                                                        key='planBundleRange-{{ $planBundleRange->id }}'>{{
+                                                        $planBundleRange->range->caloriesRange
+                                                        }}
+
+                                                        {{-- input --}}
+                                                        <input type="radio" class='d-none' name="planBundleRange"
+                                                            @if($pickedPlanBundleRange->id
+                                                        ==
+                                                        $planBundleRange->id) checked
+                                                        @endif
+                                                        id="planBundleRange-{{
+                                                        $planBundleRange->id }}"
+                                                        value='{{ $planBundleRange->id
+                                                        }}'>
+                                                    </label>
+
+
+                                                    @endif
+                                                    {{-- end if - checkOGRange --}}
+
+
+
+                                                    @endforeach
+                                                    {{-- end loop - planBundleRanges --}}
+
+                                                </div>
+                                            </div>
+                                            {{-- endPlanRanges --}}
+
+
+
+
+
+
+
+                                            {{-- ----------------------------------------- --}}
+                                            {{-- ----------------------------------------- --}}
+                                            {{-- ----------------------------------------- --}}
+                                            {{-- ----------------------------------------- --}}
+
+
+
+
                                             <div class="col-md-12">
                                                 <ul class="accordion-box  clearfix">
 
@@ -544,72 +624,6 @@
                                                                         {{-- row --}}
                                                                         <div class="row">
 
-
-
-                                                                            {{-- calorieRanges --}}
-                                                                            <div class="col-12 mb-4">
-
-
-                                                                                <label
-                                                                                    class='form--label d-block mb-1'>Calorie
-                                                                                    Range</label>
-
-
-                                                                                {{-- loop - planBundleRanges --}}
-                                                                                @foreach ($planBundleRanges ?? []
-                                                                                as $planBundleRange)
-
-
-
-                                                                                {{-- checkOGRange --}}
-                                                                                @if($planBundleRange->range->isForWebsite
-                                                                                == true &&
-                                                                                $planBundleRange?->range?->name
-                                                                                != 'Customized')
-
-
-                                                                                <label class='selection--label'
-                                                                                    for='planBundleRange-{{ $planBundleRange->id }}'
-                                                                                    wire:click="changePlanBundleRange('{{ $planBundleRange->id }}')"
-                                                                                    key='planBundleRange-{{ $planBundleRange->id }}'>{{
-                                                                                    $planBundleRange->range->caloriesRange
-                                                                                    }}
-
-                                                                                    {{-- input --}}
-                                                                                    <input type="radio" class='d-none'
-                                                                                        name="planBundleRange"
-                                                                                        @if($pickedPlanBundleRange->id
-                                                                                    ==
-                                                                                    $planBundleRange->id) checked
-                                                                                    @endif
-                                                                                    id="planBundleRange-{{
-                                                                                    $planBundleRange->id }}"
-                                                                                    value='{{ $planBundleRange->id
-                                                                                    }}'>
-                                                                                </label>
-
-
-                                                                                @endif
-                                                                                {{-- end if - checkOGRange --}}
-
-
-
-                                                                                @endforeach
-                                                                                {{-- end loop - planBundleRanges
-                                                                                --}}
-
-
-                                                                            </div>
-
-
-
-
-
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
-                                                                            {{-- ----------------------------- --}}
 
 
 

@@ -5642,7 +5642,7 @@ body.mfp-zoom-out-cur {
 .blog2 .item .curv-butn .br-right-bottom {
     position: absolute;
     bottom: -1px;
-    right: -23px;
+    right: -22px;
     -webkit-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
     transform: rotate(270deg);

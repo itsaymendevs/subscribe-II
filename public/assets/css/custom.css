@@ -306,6 +306,14 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
     color: var(--color-button-text);
 }
 
+.plan-bundles--wrapper {
+    background-color: var(--color-layout);
+    margin-top: 20px;
+    padding: 20px 25px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
 .item-bundles {
     width: 100%;
     cursor: pointer;
