@@ -26,19 +26,22 @@
                             <div class="col-12">
 
 
-                                {{-- logout --}}
-                                <div class="d-block text-center">
-                                    <button type='button' class="booking-button submit-button text-uppercase "
-                                        wire:click='logout'>Logout</button>
-                                </div>
-
 
                                 {{-- cancel --}}
                                 <div class="d-block text-center">
-                                    <button type='button'
-                                        class="booking-button for-cancel submit-button text-uppercase mt-3"
+                                    <button type='button' class="booking-button submit-button text-uppercase"
                                         data-bs-dismiss='modal'>Cancel</button>
                                 </div>
+
+
+
+                                {{-- logout --}}
+                                <div class="d-block text-center">
+                                    <button type='button'
+                                        class="booking-button for-cancel submit-button text-uppercase mt-3"
+                                        wire:click='logout'>Logout</button>
+                                </div>
+
 
 
 

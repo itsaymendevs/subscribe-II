@@ -152,7 +152,7 @@
                                         <img src="{{ $storagePath . 'menu/plans/' . $plan->imageFile }}"
                                             class="plans-img img-fluid" alt=""
                                             wire:click="changePlan('{{ $plan->id }}')" />
-                                        <div class="bottom-fade"></div>
+                                        <div class="bottom-fade" wire:click="changePlan('{{ $plan->id }}')"></div>
 
                                         {{-- details --}}
                                         <div class="title" wire:click="changePlan('{{ $plan->id }}')">
@@ -543,9 +543,6 @@
 
                                                                         {{-- row --}}
                                                                         <div class="row">
-
-
-
 
 
 

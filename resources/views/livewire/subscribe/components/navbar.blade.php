@@ -64,11 +64,9 @@
                 {{-- showAccount --}}
                 @else
 
-                <li class="nav-item" style="border: 2px solid var(--color-primary); border-radius: 5px;">
-                    <a class="nav-link text-center" href="javascript:void(0);" data-bs-toggle='modal'
-                        data-bs-target='#logout--modal'>{{ session('hide-login') }}</a>
-                </li>
 
+                <li class="nav-item"><a class="nav-link" href="javascript:void(0);"
+                        wire:click='loginToPortal'>Profile</a></li>
 
                 @endif
                 {{-- end if --}}
@@ -91,7 +89,21 @@
             <div class="navbar-right">
 
 
+                {{-- profile --}}
+                @if (session('hide-login'))
+
+                <div class="wrap" data-bs-toggle='modal' data-bs-target='#logout--modal' style="cursor: pointer">
+                    <div class="icon"><i class='bi bi-person'></i></div>
+                    <div class="text">
+                        <p>Need help?</p>
+                        <h5><a href="tel:{{ $globalProfile?->phone }}">{{ $globalProfile?->phone }}</a></h5>
+                    </div>
+                </div>
+
+
                 {{-- phone --}}
+                @else
+
                 <div class="wrap">
                     <div class="icon"><i class="flaticon-phone-call"></i></div>
                     <div class="text">
@@ -99,6 +111,14 @@
                         <h5><a href="tel:{{ $globalProfile?->phone }}">{{ $globalProfile?->phone }}</a></h5>
                     </div>
                 </div>
+
+                @endif
+                {{-- end if --}}
+
+
+
+
+
 
 
             </div>

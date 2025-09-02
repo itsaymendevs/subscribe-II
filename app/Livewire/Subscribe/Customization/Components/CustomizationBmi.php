@@ -11,6 +11,7 @@ class CustomizationBmi extends Component
 
     use HelperTrait;
     public $option, $weight, $height, $age, $gender, $bmi, $bmiStatus, $showResult, $bmr;
+    public $activityLevelOptions, $activityLevel;
 
 
     public function mount()
@@ -23,6 +24,19 @@ class CustomizationBmi extends Component
         $this->height = 0;
         $this->showResult = false;
         $this->option = "BMI";
+
+
+
+
+        // 1.2: activityLevels
+        $this->activityLevelOptions = [
+            "Sedentary (little or no exercise)",
+            "Lightly Active (light exercise 1-3 days/week)",
+            "Moderately Active (moderate exercise 3-5 days/week)",
+            "Very Active (hard exercise 6-7 days/week)",
+            "Extra Active (very hard exercise & physical job or training twice per day)",
+        ];
+
 
     } // end function
 

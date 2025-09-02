@@ -68,3 +68,13 @@
 .select1_wrapper.for-part {
     min-width: 100px;
 }
+
+.form-select.for-bmi {
+    max-width: 90%;
+    text-align: center;
+    border-radius: 20px;
+    border-color: var(--color-primary);
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 15px;
+}

@@ -3,6 +3,7 @@
 namespace App\Livewire\Subscribe\Components;
 
 use App\Livewire\Forms\SubscriptionForm;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
@@ -28,6 +29,30 @@ class Navbar extends Component
 
 
     } // end function
+
+
+
+
+
+
+    // --------------------------------------------------------------------
+
+
+
+
+
+    public function loginToPortal()
+    {
+
+
+        // 1: getProfile
+        $profile = Profile::first();
+
+        return $this->redirect($profile->applicationURL, navigate: false);
+
+
+    } // end function
+
 
 
 

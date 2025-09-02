@@ -1,5 +1,5 @@
 <div class="modal fade" id="bmi--modal" wire:ignore.self>
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 530px">
         <div class="modal-content">
 
             {{-- header --}}
@@ -69,8 +69,8 @@
                                     {{-- label --}}
                                     <label class='form--label for-bmi for-result d-block mb-1'>{{ number_format($bmr ??
                                         0) }}</label>
-                                    <label class='form--label for-bmi-status d-block mb-1'>Your body’s daily calorie
-                                        burn at rest</label>
+                                    <label class='form--label for-bmi-status d-block mb-1'>Your Basal Metabolic
+                                        Rate (BMR)</label>
 
                                 </div>
                             </div>
@@ -122,12 +122,12 @@
                             <div class="col-12">
                                 <div class="d-flex justify-content-center align-items-center mb-30">
                                     <label class="switch--label" for='calculate-option-1'>BMI
-                                        <input type="radio" name='calculate-option' wire:model='option' value='BMI'
+                                        <input type="radio" name='calculate-option' wire:model.live='option' value='BMI'
                                             class='d-none' id='calculate-option-1'>
                                     </label>
 
                                     <label class="switch--label" for='calculate-option-2'>BMR
-                                        <input type="radio" name='calculate-option' wire:model='option' value='BMR'
+                                        <input type="radio" name='calculate-option' wire:model.live='option' value='BMR'
                                             class='d-none' id='calculate-option-2'>
                                     </label>
                                 </div>
@@ -257,6 +257,46 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+
+                            {{-- ------------------------------------------ --}}
+                            {{-- ------------------------------------------ --}}
+
+
+
+
+
+                            {{-- activityLevel --}}
+                            @if ($option == 'BMR')
+
+                            <div class="col-12 col-sm-12 px-1">
+                                <div class="bmi--card">
+
+                                    {{-- label --}}
+                                    <label class='form--label for-bmi d-block mb-1'>Activity Level</label>
+
+
+                                    <div class="bmi--section">
+                                        <select class="select form-select for-bmi" wire:model='activityLevel'>
+
+                                            @foreach ($activityLevelOptions ?? [] as $activityLevelOption)
+
+                                            <option value="{{ $activityLevelOption }}">{{ $activityLevelOption }}
+                                            </option>
+
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            @endif
+                            {{-- end if --}}
+
 
 
 

@@ -584,8 +584,8 @@ hr {
 }
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-    background: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
 }
 .owl-carousel .owl-nav button.owl-next,
 .owl-carousel .owl-nav button.owl-prev,
@@ -1256,12 +1256,12 @@ hr {
     width: 100%;
 }
 .slider-fade .owl-theme .owl-dots .owl-dot span {
-    border: 1px solid var(--color-text-dim);
+    border: 1px solid var(--color-secondary);
 }
 .slider-fade .owl-theme .owl-dots .owl-dot.active span,
 .slider-fade .owl-theme .owl-dots .owl-dot:hover span {
-    background: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
 }
 /* owl-theme owl-nav */
 .slider-fade .owl-theme .owl-nav {
