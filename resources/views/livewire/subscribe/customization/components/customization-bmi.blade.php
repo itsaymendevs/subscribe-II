@@ -68,7 +68,7 @@
 
                                     {{-- label --}}
                                     <label class='form--label for-bmi for-result d-block mb-1'>{{ number_format($bmr ??
-                                        0) }}</label>
+                                        0) }}<span>Calories/day</span> </label>
                                     <label class='form--label for-bmi-status d-block mb-1'>Your Basal Metabolic
                                         Rate (BMR)</label>
 

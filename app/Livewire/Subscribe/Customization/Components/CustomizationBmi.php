@@ -241,7 +241,7 @@ class CustomizationBmi extends Component
         $this->bmiStatus = null;
         $this->gender = null;
         $this->showResult = false;
-
+        $this->activityLevel = null;
 
 
     } // end function

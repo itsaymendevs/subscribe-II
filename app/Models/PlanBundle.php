@@ -256,7 +256,6 @@ class PlanBundle extends Model
 
 
 
-
         return $typesInArray;
 
 

@@ -492,6 +492,11 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
     font-weight: 600;
 }
 
+.form--label.for-bmi.for-result span {
+    font-size: 14px;
+    margin-left: 3px;
+}
+
 .form--label.for-bmi-status {
     text-align: center;
     font-size: 18px;

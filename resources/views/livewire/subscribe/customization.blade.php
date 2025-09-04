@@ -903,6 +903,21 @@
 
 
 
+
+                                                                    {{-- gender --}}
+                                                                    <div class="col-12 col-sm-6 col-md-6 col-xl-4">
+                                                                        <label
+                                                                            class='form--label d-block mb-1'>Gender</label>
+                                                                        <select class="select form-select mb-4"
+                                                                            wire:model='instance.gender'>
+                                                                            <option value="Male">Male</option>
+                                                                            <option value="Female">Female</option>
+                                                                        </select>
+                                                                    </div>
+
+
+
+
                                                                     {{-- email --}}
                                                                     <div class="col-12 col-sm-6 col-md-6 col-xl-4">
                                                                         <label class='form--label d-block mb-1'>Email
@@ -916,8 +931,6 @@
 
 
 
-                                                                    {{-- -------------------------------------- --}}
-                                                                    {{-- -------------------------------------- --}}
 
 
 
@@ -1040,16 +1053,31 @@
 
 
 
-                                                                    {{-- gender --}}
+
+                                                                    {{-- -------------------------------------- --}}
+                                                                    {{-- -------------------------------------- --}}
+
+
+
+
+                                                                    {{-- password --}}
+                                                                    @if (!$instance?->isExistingCustomer)
+
                                                                     <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-                                                                        <label
-                                                                            class='form--label d-block mb-1'>Gender</label>
-                                                                        <select class="select form-select"
-                                                                            wire:model='instance.gender'>
-                                                                            <option value="Male">Male</option>
-                                                                            <option value="Female">Female</option>
-                                                                        </select>
+                                                                        <label class='form--label d-block mb-1'>Account
+                                                                            Password</label>
+                                                                        <input type="password"
+                                                                            class="form-control input input-regular mb-4"
+                                                                            wire:model='instance.password' required>
                                                                     </div>
+
+                                                                    @endif
+                                                                    {{-- end if --}}
+
+
+
+
+
 
 
                                                                 </div>

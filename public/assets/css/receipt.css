@@ -7,6 +7,11 @@
     display: inline-flex;
     padding: 10px 15px;
     flex-direction: column;
+    color: #111;
+}
+
+#temporary--link {
+    display: none;
 }
 
 .receipt--wrapper * {
@@ -116,6 +121,7 @@
 .receipt--wrapper .item {
     display: block;
     text-align: left;
+    margin-bottom: 0px;
 }
 
 .receipt--wrapper .item.sub {
@@ -250,4 +256,31 @@
         margin-top: 0px;
         margin-bottom: 0px;
     }
+}
+
+.invoice--download-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    padding: 0px;
+    min-width: auto;
+    height: 48px;
+    border-radius: 50%;
+    color: var(--color-button-text);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.invoice--download-btn:hover,
+.invoice--download-btn:focus {
+    color: var(--color-button-text);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    padding: 0px;
+}
+
+.invoice--download-btn i {
+    font-size: 25px;
+    color: var(--color-button-text);
 }

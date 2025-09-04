@@ -49,7 +49,7 @@
 
 
                     {{-- wrapper --}}
-                    <div class="receipt--wrapper" id='invoice--main'>
+                    <div id='invoice--main' class="receipt--wrapper">
 
                         {{-- logo - trn --}}
                         <div class="logo">
@@ -215,13 +215,13 @@
 
 
                             {{-- plan --}}
-                            <div class="col-9">
+                            <div class="col-8">
                                 <div class="item"><span>{{ $subscription?->plan?->name }}</span></div>
                             </div>
 
 
                             {{-- planPrice --}}
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="text-end item">
                                     <span class="price">
                                         {{ number_format($subscription?->planPrice, 2) }}
@@ -230,6 +230,17 @@
                             </div>
 
 
+
+
+                            {{-- plan-details --}}
+                            <div class="col-11 offset-1">
+                                <div class="item sub">
+                                    <span>{{ $subscription?->bundle?->name }} — {{ $subscription?->planDays }}
+                                        days<br>{{ implode(' / ',
+                                        $subscription?->bundle?->typesInObject()) }}
+                                    </span>
+                                </div>
+                            </div>
 
 
 
@@ -286,12 +297,12 @@
 
 
                             {{-- title --}}
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>Subtotal</span></div>
                             </div>
 
 
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item"><span class="price">{{
                                         number_format($subscription?->planPrice - ($subscription?->planDiscountPrice
                                         ?? 0), 2) }}</span></div>
@@ -316,12 +327,12 @@
 
 
                             {{-- title --}}
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>Promo</span></div>
                             </div>
 
 
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item"><span class="price">-
                                         {{number_format($subscription?->promoCodeDiscountPrice,1)}}</span>
                                 </div>
@@ -353,12 +364,12 @@
 
 
                             {{-- title --}}
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>Cool Bag</span></div>
                             </div>
 
 
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item"><span class="price">{{
                                         number_format($subscription?->bagPrice, 2) }}</span>
                                 </div>
@@ -387,10 +398,10 @@
 
                         {{-- row --}}
                         <div class="row receipt--row">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>Delivery</span></div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item">
                                     <span class="price">
                                         {{-- 3.1: free --}}
@@ -432,10 +443,10 @@
 
                         {{-- TAX --}}
                         <div class="row receipt--row">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>TAX</span></div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item"><span class="price">{{
                                         number_format($subscription?->taxPrice, 2) }}</span>
                                 </div>
@@ -459,10 +470,10 @@
                         @if ($subscription?->walletDiscountPrice)
 
                         <div class="row receipt--row">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>Wallet Discount</span></div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item"><span class="price">{{
                                         number_format($subscription?->walletDiscountPrice, 2) }}</span>
                                 </div>
@@ -484,10 +495,10 @@
 
                         {{-- totalPrice --}}
                         <div class="row receipt--row">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div class="item"><span>Total Price</span></div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 <div class="text-end item"><span class="fw-700 with-currency">{{
                                         number_format($subscription?->totalCheckoutPrice, 2) }}</span>
                                 </div>
@@ -530,8 +541,31 @@
 
 
                     </div>
+
+
+
                 </div>
                 {{-- endColumn --}}
+
+
+
+
+
+
+
+                {{-- ---------------------------------- --}}
+                {{-- ---------------------------------- --}}
+
+
+
+
+                {{-- downloadButton --}}
+                <div class="col-12 text-center mt-4">
+                    <a href="javascript:void(0);" class="btn btn--submit invoice--download-btn download--btn"
+                        data-download='#invoice--main'><i class='bi bi-cloud-arrow-down mx-0'></i>
+                    </a>
+                </div>
+
 
 
 
@@ -566,6 +600,12 @@
 
     @endsection
     {{-- endSection --}}
+
+
+
+
+    <script src="{{url('assets/js/actions.js')}}"></script>
+
 
 
 

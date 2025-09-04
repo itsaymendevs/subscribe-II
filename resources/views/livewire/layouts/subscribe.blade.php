@@ -223,6 +223,7 @@
         <script src="{{url('assets/js/init-select.js')}}"></script>
         <script src="{{url('assets/js/datepicker.js')}}"></script>
         <script src="{{url('assets/js/youTube-popup.js')}}"></script>
+        <script src="{{url('assets/js/html2canvas.js')}}"></script>
         <script src="{{url('assets/js/custom.js')}}"></script>
 
 
@@ -237,6 +238,9 @@
         <x-livewire-alert::scripts /> --}}
 
 
+
+
+        @yield('scripts')
 
 
     </body>
