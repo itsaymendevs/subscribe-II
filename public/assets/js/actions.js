@@ -17,3 +17,10 @@ $(document).on("click", ".download--btn", function () {
         });
     });
 });
+
+// 3: closeModal
+window.addEventListener("closeModal", (event) => {
+    // 1: get closeButtonParams
+    closeModalButton = event.detail.modal;
+    $(closeModalButton).trigger("click");
+});

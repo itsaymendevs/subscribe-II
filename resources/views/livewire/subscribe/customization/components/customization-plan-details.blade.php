@@ -81,7 +81,7 @@
                                                 {{-- price --}}
                                                 <div class="plan-details--tags">
                                                     <span>{{ $plan?->category?->name }}</span>
-                                                    <span>Start Price {{ $plan?->startingPrice }} AED</span>
+                                                    <span>Starting Price {{ $plan?->startingPrice }} AED</span>
                                                 </div>
 
 
@@ -177,6 +177,132 @@
 
                                         </div>
                                     </div>
+
+
+
+
+
+
+
+                                    {{-- -------------------------------- --}}
+                                    {{-- -------------------------------- --}}
+                                    {{-- -------------------------------- --}}
+                                    {{-- -------------------------------- --}}
+
+
+
+
+
+                                    {{-- menu-dates --}}
+                                    <div class="col-12">
+                                        <div
+                                            class="sample-menu--slider justify-content-start justify-content-lg-center">
+
+
+                                            {{-- loop - upcomingSchedules --}}
+                                            @foreach ($upcomingDates ?? [] as $key => $upcomingDate)
+
+                                            <a href="javascript:void(0);"
+                                                class='@if ($upcomingDate == $searchDate) active no-events @endif'
+                                                wire:click="changeDate('{{ $upcomingDate }}')"
+                                                wire:loading.class='no-events-processing'>
+                                                <span>{{ date('D', strtotime($upcomingDate)) }}</span>
+                                                <span>
+                                                    {{ date('d/m', strtotime($upcomingDate)) }}
+                                                </span>
+                                            </a>
+
+                                            @endforeach
+                                            {{-- end loop --}}
+
+                                        </div>
+                                    </div>
+                                    {{-- endMenu --}}
+
+
+
+
+
+
+                                    {{-- ------------------------------------------- --}}
+                                    {{-- ------------------------------------------- --}}
+
+
+
+
+                                    {{-- filters --}}
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+
+
+                                            {{-- city --}}
+                                            <div class="col-12 col-sm-4 mb-3" wire:ignore>
+                                                <div wire:loading.class='no-events-processing'>
+
+                                                    <select id='meal-type--select' class="select form-select"
+                                                        wire.model='searchMealType' placeholder='Select Type'
+                                                        wire:change='getScheduleMeals' required>
+
+                                                        @foreach ($mealTypes ?? [] as $mealType)
+
+                                                        <option value="{{ $mealType->id }}">{{ $mealType->name }}
+                                                        </option>
+
+                                                        @endforeach
+                                                        {{-- end loop --}}
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                    {{-- endFilters --}}
+
+
+
+
+                                    {{-- ------------------------------------------- --}}
+                                    {{-- ------------------------------------------- --}}
+
+
+
+
+                                    {{-- menu-samples --}}
+                                    <div class="col-12" wire:loading.class='no-events-processing'>
+                                        <div class="row">
+
+
+                                            {{-- loop - meals --}}
+                                            @foreach ($meals?->take(6) ?? [] as $meal)
+
+
+                                            <div class="col-6 col-md-4 col-lg-3"
+                                                key='single-schedule-meal-popup-{{ $meal->id }}'>
+                                                <div class="sample-menu--card">
+
+                                                    {{-- imageFile --}}
+                                                    <img src='{{ $storagePath . "menu/meals/" . $meal?->imageFile }}'>
+
+
+                                                    {{-- name --}}
+                                                    <h6 class='truncate-2'>{{ $meal?->name }}</h6>
+                                                </div>
+                                            </div>
+
+                                            @endforeach
+                                            {{-- end loop --}}
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+
 
 
                                 </div>

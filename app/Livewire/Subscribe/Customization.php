@@ -1007,15 +1007,34 @@ class Customization extends Component
 
 
         // 1 getPlanPrice
-        $this->instance->planPrice = $this->instance->totalPlanBundleRangePrice - ($this->instance->planBundleRangeDiscountPrice + $this->instance->planBundleRangeAdjustmentPrice);
+        $this->checkPromo(false);
+
+        if ($this->instance?->promoCodeDiscountPrice > 0) {
+
+            $this->instance->planPrice = $this->instance->totalPlanBundleRangePrice;
+
+
+            // :: resetOthers
+            $this->instance->planBundleRangeDiscountPrice = 0;
+            $this->instance->planBundleRangeAdjustmentPrice = 0;
+
+
+        } else {
+
+            $this->instance->planPrice = $this->instance->totalPlanBundleRangePrice - ($this->instance->planBundleRangeDiscountPrice + $this->instance->planBundleRangeAdjustmentPrice);
+
+        } // end if
+
+
 
 
 
 
         // 1.2: checkPromo
-        $this->checkPromo(false);
         $this->instance->planPrice -= $this->instance->referralDiscountPrice;
         $this->instance->planPrice -= $this->instance->promoCodeDiscountPrice;
+
+
 
 
 
@@ -1169,24 +1188,6 @@ class Customization extends Component
 
         } // end if
 
-
-
-
-
-        // ----------------------------------------
-
-
-
-
-
-        // 1.2: validateExcludes / allergies
-        if (count($this->instance->excludeLists ?? []) > 5 || count($this->instance->allergyLists ?? []) > 5) {
-
-            // $this->makeAlert('info', "Maximum of five exclusions or allergy groups allowed.");
-
-            // return false;
-
-        } // end if
 
 
 
@@ -1473,6 +1474,69 @@ class Customization extends Component
 
     } // end function
 
+
+
+
+
+
+
+
+    // ----------------------------------------------------------------
+
+
+
+
+
+    public function checkForm()
+    {
+
+
+
+        // 1: checkForm
+        if (empty($this->instance->firstName) || empty($this->instance->lastName) || empty($this->instance->fullEmail) || empty($this->instance->phone) || empty($this->instance->whatsapp)) {
+
+
+            $this->makeAlert('info', 'Please fill your personal details');
+
+
+        } elseif (empty($this->instance->cityId) || empty($this->instance->cityDistrictId) || empty($this->instance->cityDeliveryTimeId) || empty($this->instance->locationAddress) || empty($this->instance->floor) || empty($this->instance->apartment)) {
+
+
+            $this->makeAlert('info', 'Please fill your address details');
+
+
+        } elseif ((! $this->instance->isExistingCustomer) && empty($this->instance->password)) {
+
+
+            $this->makeAlert('info', 'Please fill your personal details');
+
+        } // end if
+
+
+        $this->skipRender();
+
+    } // end function
+
+
+
+
+
+
+
+    // ----------------------------------------------------------------
+
+
+
+
+
+    public function manageExcludes()
+    {
+
+        // 1: syncValues
+        $this->dispatch('manageExcludes');
+
+
+    } // end function
 
 
 

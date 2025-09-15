@@ -78,7 +78,7 @@ trait MailTrait
             $this->setMailConfiguration($configuration);
 
             // 1.2: prepMail
-            Mail::to($email)->send(new InvoiceMail($id));
+            // Mail::to($email)->send(new InvoiceMail($id));
 
 
         } // end if
@@ -123,7 +123,7 @@ trait MailTrait
 
             if ($customer?->subscriptions?->count() == 1) {
 
-                Mail::to($email)->send(new AccountMail($id));
+                // Mail::to($email)->send(new AccountMail($id));
 
             } // end if
 

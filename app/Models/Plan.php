@@ -99,7 +99,8 @@ class Plan extends Model
 
 
 
-    public function defaultCalendarMeals()
+
+    public function defaultCalendarMeals($scheduleDate = null, $mealTypeId = null)
     {
 
 
@@ -112,7 +113,19 @@ class Plan extends Model
 
 
             // 1.2: getMeals
-            $mealsIDs = $defaultCalendar?->calendar?->scheduleByDate($this->getCurrentDate())?->meals?->pluck('mealId')?->toArray() ?? [];
+            if ($mealTypeId) {
+
+                $mealsIDs = $defaultCalendar?->calendar?->scheduleByDate($scheduleDate ?? $this->getCurrentDate())?->meals
+                        ?->where('mealTypeId', $mealTypeId)?->pluck('mealId')?->toArray() ?? [];
+
+            } else {
+
+
+                $mealsIDs = $defaultCalendar?->calendar?->scheduleByDate($scheduleDate ?? $this->getCurrentDate())?->meals?->pluck('mealId')?->toArray() ?? [];
+
+            } // end if
+
+
 
             $sampleMeals = Meal::whereIn('id', $mealsIDs ?? [])?->get();
 
@@ -121,13 +134,10 @@ class Plan extends Model
 
 
 
-
-
         return $sampleMeals ?? [];
 
 
     } // end function
-
 
 
 

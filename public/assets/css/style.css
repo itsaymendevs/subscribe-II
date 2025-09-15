@@ -3233,10 +3233,10 @@ hr {
     font-weight: 400;
 }
 .car-details .sidebar-car .item {
-    padding: 30px;
+    padding: 30px 25px;
 }
 .car-details .sidebar-car .item .features {
-    padding: 15px 0;
+    padding: 10px 0;
     display: grid;
     grid-template-columns: 50% 50%;
 }
@@ -3245,10 +3245,10 @@ hr {
 }
 .car-details .sidebar-car .item .features span i {
     color: var(--color-button-text);
-    margin-right: 10px;
-    font-size: 14px;
+    margin-right: 6px;
+    font-size: 12px;
     background: var(--color-secondary);
-    padding: 10px;
+    padding: 7px;
     border-radius: 100%;
 }
 .car-details .sidebar-car .item .features p {

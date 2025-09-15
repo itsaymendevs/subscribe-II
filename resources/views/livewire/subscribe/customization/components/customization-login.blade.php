@@ -44,7 +44,7 @@
 
 
                             <div class="col-12">
-                                <p class='text-center'>{{ $customerMessage ?? '' }}</p>
+                                <p class='text-center' style="color: var(--bs-danger)">{{ $customerMessage ?? '' }}</p>
                             </div>
 
 

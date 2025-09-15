@@ -11,7 +11,7 @@
 }
 
 #temporary--link {
-    display: none;
+    /* display: none; */
 }
 
 .receipt--wrapper * {
@@ -188,6 +188,12 @@
 
 /* qr */
 
+.receipt--wrapper .receipt--qr {
+    display: block;
+    text-decoration: none !important;
+    color: initial;
+}
+
 .receipt--wrapper .receipt--qr svg {
     width: 100%;
     height: 170px;
@@ -262,13 +268,14 @@
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    width: 48px;
+    width: 120px;
+    font-weight: 500;
     padding: 0px;
     min-width: auto;
-    height: 48px;
-    border-radius: 50%;
-    color: var(--color-button-text);
-    background-color: var(--color-primary);
+    height: 42px;
+    border-radius: 2px;
+    color: var(--color-text);
+    background-color: transparent;
     border-color: var(--color-primary);
 }
 

@@ -126,8 +126,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="d-block text-center">
-                                    <button type="button" data-bs-dismiss='modal'
-                                        class="booking-button submit-button text-uppercase"
+                                    <button type="button" class="booking-button submit-button text-uppercase"
                                         wire:click='confirm'>Confirm</button>
                                 </div>
                             </div>

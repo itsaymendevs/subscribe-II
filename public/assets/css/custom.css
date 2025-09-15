@@ -394,11 +394,11 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
 }
 
 .bundle-details span {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .bundle-details p {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .btn-double > a {
@@ -649,7 +649,7 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
 
 @media (max-width: 575px) {
     .plan-details--desc {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
@@ -660,6 +660,91 @@ input[type="date"].invert-icon::-webkit-calendar-picker-indicator {
         margin-right: 0px;
         margin-left: 0px;
         padding-bottom: 15px;
+    }
+}
+
+/* sample-menu */
+.sample-menu--slider {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    overflow: auto;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.sample-menu--slider a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    margin-right: 12px;
+    text-decoration: none;
+    padding: 15px 0px;
+    width: 65px;
+    min-width: 65px;
+    margin-bottom: 12px;
+}
+
+.sample-menu--slider a.active {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary);
+}
+
+.sample-menu--slider a.active * {
+    color: var(--color-button-text);
+}
+
+.sample-menu--slider a:last-of-type {
+    margin-right: 0px;
+}
+
+.sample-menu--slider a span:first-of-type {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.sample-menu--slider a span:last-of-type {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sample-menu--card {
+    border: 1px solid var(--color-border);
+
+    padding: 20px 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.sample-menu--card img {
+    width: 100%;
+    max-height: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.sample-menu--card h6 {
+    text-align: center;
+    font-size: 14px;
+    height: 37px;
+}
+
+@media (max-width: 575px) {
+    .sample-menu--card img {
+        max-height: 130px;
+        height: 130px;
+    }
+
+    .sample-menu--card h6 {
+        text-align: center;
+        font-size: 13px;
+        height: 34px;
     }
 }
 
@@ -723,7 +808,7 @@ span.including.fixed:after {
 }
 
 .summary--line h6 {
-    width: 30%;
+    width: 34%;
     text-align: right;
     color: var(--color-layout-text);
     font-size: 13px;
@@ -1105,4 +1190,16 @@ div:where(.swal2-icon).swal2-info {
         bottom: 85px;
         width: 55px;
     }
+}
+
+.swal2-toast {
+    border: 1px solid var(--color-border) !important;
+    background: var(--color-layout) !important;
+    padding: 18px 15px !important;
+}
+
+.swal2-title {
+    color: var(--color-layout-text) !important;
+    margin-left: 10px !important;
+    margin-right: 0px !important;
 }

@@ -55,6 +55,10 @@
 
 
                 {{-- 4: login --}}
+                @if (!Request::is('invoice'))
+
+
+
                 @if (!session('hide-login'))
 
                 <li class="nav-item"><a class="nav-link" href="javascript:void(0);" data-bs-toggle='modal'
@@ -67,6 +71,10 @@
 
                 <li class="nav-item"><a class="nav-link" href="javascript:void(0);"
                         wire:click='loginToPortal'>Profile</a></li>
+
+                @endif
+                {{-- end if --}}
+
 
                 @endif
                 {{-- end if --}}

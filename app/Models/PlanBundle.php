@@ -333,4 +333,81 @@ class PlanBundle extends Model
 
 
 
+
+    // -----------------------------------------------------------
+    // -----------------------------------------------------------
+
+
+
+
+
+
+
+
+    public function typesPlusMealTypesInObjectForCheckout()
+    {
+
+
+        // 1: getTypes - typeInArray
+        $typesInArray = [];
+        $types = $this->types()->get();
+
+
+
+        // :: loop - types
+        foreach ($types->groupBy('typeId') as $commonType => $typesByType) {
+
+
+            // 1.2: quantity > 0
+            if ($typesByType->sum('quantity') > 0) {
+
+
+
+                // 1.3: recipes or others
+                if ($typesByType->first()->type->name == 'Recipe') {
+
+
+                    foreach ($typesByType->groupBy('mealTypeId') as $commonMealType => $typesByMealType) {
+
+                        $typeName = strtolower($typesByMealType->first()->mealType?->name);
+                        $typeName = "{$typeName}";
+                        $typesInArray[$typeName] = "{$typesByMealType->sum('quantity')}";
+
+
+                    } // end loop - mealTypes
+
+
+                } else {
+
+
+                    // 1.3: others
+                    $typeName = strtolower($typesByType->first()->type->name);
+                    $typeName = "{$typeName}";
+                    $typesInArray[$typeName] = "{$typesByType->sum('quantity')}";
+
+
+                } // end if
+
+
+            } // end if
+
+
+        } // end loop - types
+
+
+
+
+
+
+
+        return $typesInArray;
+
+
+    } // end function
+
+
+
+
+
+
 } // end model

@@ -178,7 +178,7 @@
                                                 wire:click="planDetails('{{ $plan->id }}')">
                                                 <div class="icon">
                                                     <i class="icon-show"><span>{{ $plan?->startingPrice
-                                                            }}<br /><i>Starts</i></span>
+                                                            }}<br /><i>Starting</i></span>
                                                     </i><i class="ti-info icon-hidden"></i>
                                                 </div>
                                             </a>
@@ -414,7 +414,8 @@
 
 
                                                         {{-- loop - types --}}
-                                                        @foreach ($pickedPlanBundle->typesInObjectForCheckout() ??
+                                                        @foreach($pickedPlanBundle->typesPlusMealTypesInObjectForCheckout()
+                                                        ??
                                                         [] as $typeName => $typeCount)
 
                                                         <div class="features bundle-details">
@@ -750,7 +751,7 @@
 
                                                                             {{-- startDate --}}
                                                                             <div class="col-12" wire:ignore>
-                                                                                <label class='form--label'>Start
+                                                                                <label class='form--label'>Starting
                                                                                     Date</label>
                                                                                 <input type="date"
                                                                                     class="form-control input input-regular mb-0 @if($customization->colorLayoutText == 'Light') invert-icon @endif"
@@ -847,6 +848,7 @@
                                                     @if ($instance?->isExistingCustomer) d-none @endif"
                                                         wire:ignore.self>
                                                         <div class="acc-btn" wire:ignore.self data-bs-toggle='modal'
+                                                            wire:click='manageExcludes'
                                                             data-bs-target="#excludes--modal">
                                                             <span class="count">2.</span> Allergens & Dislikes
                                                         </div>
@@ -1448,7 +1450,7 @@
 
                                                         <div class="summary--section">
                                                             <div class="summary--line">
-                                                                <p>Start Date</p>
+                                                                <p>Starting Date</p>
                                                                 <h6>{{ date('d/m/y', strtotime($instance->startDate))}}
                                                                 </h6>
                                                             </div>
@@ -1587,7 +1589,8 @@
 
 
                                                 {{-- loop - types --}}
-                                                @foreach ($pickedPlanBundle->typesInObjectForCheckout() ?? []
+                                                @foreach($pickedPlanBundle->typesPlusMealTypesInObjectForCheckout() ??
+                                                []
                                                 as $typeName => $typeCount)
 
                                                 <div class="features bundle-details">
@@ -1801,7 +1804,7 @@
 
                                                 <div class="summary--section">
                                                     <div class="summary--line">
-                                                        <p>Start Date</p>
+                                                        <p>Starting Date</p>
                                                         <h6>{{ date('d/m/y', strtotime($instance->startDate))}}</h6>
                                                     </div>
                                                 </div>
@@ -1991,7 +1994,9 @@
                                     {{-- submit --}}
                                     <div class="col-lg-8 col-md-12 pb-5">
                                         <div class="d-block text-center mb-5">
-                                            <button class="booking-button submit-button mt-15">Continue</button>
+                                            <button class="booking-button submit-button mt-15"
+                                                wire:loading.class='no-events-loading'
+                                                wire:click='checkForm'>Continue</button>
                                         </div>
                                     </div>
 
