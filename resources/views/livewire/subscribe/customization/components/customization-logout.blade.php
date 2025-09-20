@@ -18,7 +18,18 @@
 
 
             {{-- body --}}
-            <div class="modal-body">
+            <div class="modal-body position-relative">
+
+
+
+
+                {{-- loader --}}
+                <div class="section--loader-wrapper" wire:loading.class='d-flex' wire:target='logout'>
+                    <span class="section--loader"></span>
+                </div>
+
+
+
                 <div class="booking-box">
                     <div class="booking-inner clearfix" wire:loading.class='no-events-processing'>
 

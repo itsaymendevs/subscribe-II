@@ -527,7 +527,7 @@
                                     href="{{ route('subscribe.getInvoiceQR', [$subscription?->id]) }}" target='_blank'>
                                     {!! QrCode::size(180)
                                     ->backgroundColor(255,255,255, 0)
-                                    ->generate("{{ route('subscribe.getInvoiceQR', [$subscription?->id]) }}") !!}
+                                    ->generate(route('subscribe.getInvoiceQR', [$subscription?->id])) !!}
                                 </a>
 
                                 {{-- caption --}}

@@ -14,7 +14,18 @@
 
 
             {{-- body --}}
-            <div class="modal-body">
+            <div class="modal-body position-relative">
+
+
+
+                {{-- loader --}}
+                <div class="section--loader-wrapper" wire:loading.class='d-flex' wire:target='checkCustomer'>
+                    <span class="section--loader"></span>
+                </div>
+
+
+
+
                 <div class="booking-box">
                     <form wire:submit='checkCustomer' class="booking-inner clearfix"
                         wire:loading.class='no-events-processing'>

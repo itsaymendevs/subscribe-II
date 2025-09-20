@@ -241,17 +241,27 @@
                             @if ($pickedPlan?->planCategoryId == $planCategory->id)
 
 
+                            {{-- title + menu button --}}
                             <div class="team section-padding sm-fix">
-
-                                {{-- title --}}
                                 <div class="row">
-                                    <div class="col-md-12 text-center">
+                                    <div class="col-md-12 text-center position-relative">
+
+
+                                        {{-- title --}}
                                         <div class="section-title mb-0">Choose your <span class='fw-700'>Bundle</span>
                                         </div>
+
+
+
+                                        {{-- menu --}}
+                                        <div class="header--bmi">
+                                            <button class="booking-button submit-button" data-bs-toggle='modal'
+                                                wire:click="planMenu('{{ $pickedPlan?->id }}')"
+                                                data-bs-target="#plan-menu--modal">Menu</button>
+                                        </div>
+
                                     </div>
                                 </div>
-
-
                             </div>
                             {{-- endPlanBundles --}}
 
@@ -419,9 +429,23 @@
                                                         [] as $typeName => $typeCount)
 
                                                         <div class="features bundle-details">
+
+                                                            {{-- special --}}
+                                                            @if (env('APP_CLIENT') == 'Healthylicious')
+
                                                             <span><i class="ti-check"></i> {{
-                                                                ucwords($typeName)
+                                                                ucwords(str_replace('side', 'salad', $typeName))
                                                                 }}</span>
+
+                                                            {{-- others --}}
+                                                            @else
+
+                                                            <span><i class="ti-check"></i> {{
+                                                                ucwords($typeName) }}</span>
+
+                                                            @endif
+                                                            {{-- end if --}}
+
                                                             <p>{{ $typeCount }}</p>
                                                         </div>
 
@@ -753,7 +777,7 @@
                                                                             <div class="col-12" wire:ignore>
                                                                                 <label class='form--label'>Starting
                                                                                     Date</label>
-                                                                                <input type="date"
+                                                                                <input type="date" id='startDatePicker'
                                                                                     class="form-control input input-regular mb-0 @if($customization->colorLayoutText == 'Light') invert-icon @endif"
                                                                                     wire:model.live='instance.startDate'
                                                                                     wire:change='changePlanDays'
@@ -1594,8 +1618,24 @@
                                                 as $typeName => $typeCount)
 
                                                 <div class="features bundle-details">
+
+                                                    {{-- special --}}
+                                                    @if (env('APP_CLIENT') == 'Healthylicious')
+
+                                                    <span><i class="ti-check"></i> {{
+                                                        ucwords(str_replace('side', 'salad', $typeName))
+                                                        }}</span>
+
+                                                    {{-- others --}}
+                                                    @else
+
                                                     <span><i class="ti-check"></i> {{
                                                         ucwords($typeName) }}</span>
+
+                                                    @endif
+                                                    {{-- end if --}}
+
+
                                                     <p>{{ $typeCount }}</p>
                                                 </div>
 
@@ -2170,21 +2210,28 @@
 
 
 
-         // Datepicker
-        //  $(document).ready(function() {
 
-        //         // getStartDate
-        //      var startDate = @json($instance->startDate);
+        $(document).ready(function() {
+                startDate = "{{ $instance?->initStartDate }}";
+                holidaysInNumbers = @json($holidaysInNumbers ?? []);
 
 
-        //       $(".datepicker").datepicker({
-        //         orientation: "top",
-        //         minDate: new Date(startDate)
-        //     }).on("change", function () {
-        //         @this.set('instance.startDate', $(this).val());
-        //         @this.changePlanDays();
-        //     });
-        //  });
+                flatpickr("#startDatePicker", {
+                minDate: startDate,
+                dateFormat: "Y-m-d",
+                theme: "light",
+                disable: [
+                    function (date) {
+                        console.log(date.getDay());
+                        console.log(holidaysInNumbers);
+                        console.log(holidaysInNumbers.includes(date.getDay()));
+                        return holidaysInNumbers.includes(date.getDay());
+                    }
+                ]
+            });
+        });
+
+
 
 
     </script>
@@ -2211,6 +2258,7 @@
     {{-- excludes - planDetails --}}
     <livewire:subscribe.customization.components.customization-excludes key='plan-excludes--modal' />
     <livewire:subscribe.customization.components.customization-plan-details key='plan-details--modal' />
+    <livewire:subscribe.customization.components.customization-plan-menu key='plan-menu--modal' />
 
 
 

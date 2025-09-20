@@ -4,14 +4,12 @@ namespace App\Livewire\Subscribe;
 
 use App\Livewire\Forms\PaymenntForm;
 use App\Livewire\Forms\SubscriptionForm;
-use App\Models\Allergy;
 use App\Models\Bag;
 use App\Models\City;
 use App\Models\CityHoliday;
 use App\Models\CountryCode;
 use App\Models\Customer;
 use App\Models\CustomerSubscriptionSetting;
-use App\Models\Exclude;
 use App\Models\MealType;
 use App\Models\Plan;
 use App\Models\PlanBundle;
@@ -50,7 +48,7 @@ class Customization extends Component
     public $pickedPlan, $pickedPlanBundle, $pickedPlanBundleRange;
 
     public $requiredTypes = [], $requiredTypeKeys = [];
-    public $minimumDeliveryDays, $weekDays, $holidays;
+    public $minimumDeliveryDays, $weekDays, $holidays, $holidaysInNumbers;
 
 
     // :: dependencies
@@ -202,7 +200,14 @@ class Customization extends Component
         $this->holidays = CityHoliday::where('cityId', 1)
             ->where('isActive', 1)->pluck('weekday')?->toArray() ?? [];
 
+
+        $this->holidaysInNumbers = array_map(function ($day) {
+            return intval(date('w', strtotime($day)));
+        }, $this->holidays);
+
+
         $this->weekDays = array_diff($this->weekDays, $this->holidays);
+
 
 
 
@@ -230,6 +235,15 @@ class Customization extends Component
             } // end if
 
         } // end if
+
+
+
+
+
+
+
+
+
 
 
 
@@ -313,6 +327,7 @@ class Customization extends Component
 
         // 2.4: getStartDate
         $restrictionDays = $settings?->changeCalendarRestriction ?? 0;
+
         $this->instance->initStartDate ?? $this->instance->initStartDate = date('Y-m-d', strtotime("+{$restrictionDays} days"));
 
 
@@ -396,6 +411,27 @@ class Customization extends Component
 
         // 1: getID
         $this->dispatch('planDetails', $id);
+
+
+    } // end function
+
+
+
+
+
+
+
+    // ----------------------------------------------------------------
+
+
+
+
+
+    public function planMenu($id)
+    {
+
+        // 1: getID
+        $this->dispatch('planMenu', $id);
 
 
     } // end function
@@ -965,7 +1001,7 @@ class Customization extends Component
 
 
         // 1.3: planPrice - totalPrice
-        $this->instance->planPrice = $this->instance->totalPlanBundleRangePrice - ($this->instance->planBundleRangeDiscountPrice + $this->instance->planBundleRangeAdjustmentPrice);
+        $this->instance->planPrice = $this->instance->totalPlanBundleRangePrice;
 
 
 

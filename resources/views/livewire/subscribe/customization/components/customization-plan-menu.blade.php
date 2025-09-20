@@ -1,10 +1,10 @@
-<div class="modal fade" id="plan-details--modal" wire:ignore.self>
+<div class="modal fade" id="plan-menu--modal" wire:ignore.self>
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             {{-- header --}}
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Plan Details</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Plan Menu</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -18,11 +18,14 @@
 
 
 
+
+
                 {{-- loader --}}
                 <div class="section--loader-wrapper" wire:loading.class='d-flex'
-                    wire:target='planDetails, getScheduleMeals, changeDate'>
+                    wire:target='planMenu, getScheduleMeals, changeDate'>
                     <span class="section--loader"></span>
                 </div>
+
 
 
 
@@ -85,31 +88,9 @@
 
 
 
-                                                {{-- name - price --}}
+                                                {{-- name --}}
                                                 <h2 class='mb-3 mb-md-3 plan-details--title'>{{ $plan?->name }}</h2>
 
-
-                                                {{-- price --}}
-                                                <div class="plan-details--tags">
-                                                    <span>{{ $plan?->category?->name }}</span>
-                                                    <span>Starting From {{ $plan?->startingPrice }} AED</span>
-                                                </div>
-
-
-
-                                                {{-- tags --}}
-                                                <div class="plan-details--tags filled mb-3">
-
-                                                    {{-- loop - tags --}}
-                                                    @foreach ($plan?->tagsInArray() ?? [] as $planTag)
-
-                                                    <span>{{ $planTag }}</span>
-
-                                                    @endforeach
-                                                    {{-- end loop --}}
-
-                                                </div>
-                                                {{-- endTags --}}
 
                                             </div>
                                         </div>
@@ -118,78 +99,8 @@
 
 
 
-
-
-                                        {{-- brief --}}
-                                        {{-- <p class='plan-details--desc mb-4 text-center'>{{ $plan?->desc }}</p> --}}
-
-
-                                        {{-- description --}}
-                                        <p class='plan-details--desc text-center mb-4'>{!! $plan?->longDesc !!}</p>
-
                                     </div>
                                     {{-- endColumn --}}
-
-
-
-                                    {{-- -------------------------------- --}}
-                                    {{-- -------------------------------- --}}
-
-
-                                    {{-- images --}}
-                                    <div class="col-12">
-                                        <div class="d-flex flex-wrap plan-details--gallery justify-content-center">
-
-
-
-
-                                            {{-- :: check --}}
-                                            @if ($plan?->secondImageFile)
-
-                                            <img src="{{ $storagePath . 'menu/plans/' . $plan->secondImageFile }}">
-
-                                            @endif
-                                            {{-- end if --}}
-
-
-
-
-                                            {{-- :: check --}}
-                                            @if ($plan?->extraImageFile)
-
-                                            <img src="{{ $storagePath . 'menu/plans/' . $plan->extraImageFile }}">
-
-                                            @endif
-                                            {{-- end if --}}
-
-
-
-                                            {{-- :: check --}}
-                                            @if ($plan?->secondExtraImageFile)
-
-                                            <img src="{{ $storagePath . 'menu/plans/' . $plan->secondExtraImageFile }}">
-
-                                            @endif
-                                            {{-- end if --}}
-
-
-
-
-                                            {{-- :: check --}}
-                                            @if ($plan?->thirdExtraImageFile)
-
-                                            <img src="{{ $storagePath . 'menu/plans/' . $plan->thirdExtraImageFile }}">
-
-                                            @endif
-                                            {{-- end if --}}
-
-
-
-
-                                        </div>
-                                    </div>
-
-
 
 
 
@@ -251,28 +162,14 @@
                                                 <div wire:loading.class='no-events-processing'>
 
                                                     <select id='meal-type--select'
-                                                        class="select form-select plan-details--select"
+                                                        class="select form-select plan-menu--select"
                                                         data-instance='searchMealType' placeholder='Select Type'
                                                         required>
 
                                                         @foreach ($mealTypes ?? [] as $mealType)
 
-                                                        {{-- special --}}
-                                                        @if (env('APP_CLIENT') == 'Healthylicious')
-
-                                                        <option value="{{ $mealType->id }}">{{ str_replace('Side',
-                                                            'Salad', $mealType->name) }}
-                                                        </option>
-
-                                                        {{-- others --}}
-                                                        @else
-
                                                         <option value="{{ $mealType->id }}">{{ $mealType->name }}
                                                         </option>
-
-                                                        @endif
-                                                        {{-- end if --}}
-
 
                                                         @endforeach
                                                         {{-- end loop --}}
@@ -393,7 +290,7 @@
 
     {{-- select-handle --}}
     <script>
-        $(document).on('change', ".plan-details--select", function(event) {
+        $(document).on('change', ".plan-menu--select", function(event) {
 
 
             // 1.1: getValue - instance

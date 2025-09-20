@@ -45,11 +45,61 @@ class CustomizationExcludes extends Component
 
 
         // 1: getExcludes
-        $this->instance->excludeLists = session('excludeLists');
-        $this->instance->allergyLists = session('allergyLists');
+        $this->instance->excludeLists = session('excludeLists') ?? [];
+        $this->instance->allergyLists = session('allergyLists') ?? [];
+
 
 
     } // end function
+
+
+
+
+    // ------------------------------------------------------------
+
+
+
+
+    public function checkExcludes()
+    {
+
+
+        // 1: checkCount
+        if (count($this->instance->excludeLists) < 3) {
+
+            $this->skipRender();
+
+        } // end if
+
+
+    } // end if
+
+
+
+
+
+
+    // ------------------------------------------------------------
+
+
+
+
+    public function checkAllergies()
+    {
+
+
+        // 1: checkCount
+        if (count($this->instance->allergyLists) < 3) {
+
+            $this->skipRender();
+
+        } // end if
+
+
+    } // end if
+
+
+
 
 
 
