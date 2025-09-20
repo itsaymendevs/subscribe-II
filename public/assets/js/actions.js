@@ -24,3 +24,9 @@ window.addEventListener("closeModal", (event) => {
     closeModalButton = event.detail.modal;
     $(closeModalButton).trigger("click");
 });
+
+$(document).ready(function () {
+    document
+        .querySelectorAll('[data-bs-toggle="tooltip"]')
+        .forEach((el) => new bootstrap.Tooltip(el));
+});
